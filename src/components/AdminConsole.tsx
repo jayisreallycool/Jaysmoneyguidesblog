@@ -203,6 +203,11 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
 
     onSavePost(updatedPost);
     resetPostForm();
+    setStatusNotification(
+      editingPostId 
+        ? `Successfully updated "${updatedPost.title}" (${updatedPost.isDraft ? 'Saved as Draft' : 'Published Live'})!` 
+        : `Successfully published new guide "${updatedPost.title}"!`
+    );
     setActiveTab('posts');
   };
 
@@ -241,9 +246,12 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
       setPostTitle(firstLine);
     } else {
       setPostContent((prev) => prev ? `${prev}\n\n${aiResult}` : aiResult);
+      if (!postTitle) {
+        setPostTitle(aiPrompt);
+      }
     }
-    setAiSuccessMsg('Inserted into post editor!');
-    setTimeout(() => setAiSuccessMsg(''), 3000);
+    setActiveTab('create');
+    setStatusNotification('AI generated content loaded into Article Editor! Review and click "Publish Article".');
   };
 
   const unreadCount = contactMessages.filter((m) => !m.read).length;
@@ -432,21 +440,22 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
             {/* Scrollable Content Body */}
             <div className="overflow-y-auto p-4 sm:p-6 space-y-6 flex-1">
               
+              {/* Status Notification Toast */}
+              {statusNotification && (
+                <div className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 p-3.5 rounded-2xl text-xs font-bold flex items-center justify-between animate-fadeIn mb-4">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>{statusNotification}</span>
+                  </div>
+                  <button onClick={() => setStatusNotification('')} className="text-slate-400 hover:text-white p-1">
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              )}
+
               {/* TAB 1: ANALYTICS OVERVIEW */}
               {activeTab === 'analytics' && (
                 <div className="space-y-6">
-                  {/* Status Notification Toast */}
-                  {statusNotification && (
-                    <div className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 p-3.5 rounded-2xl text-xs font-bold flex items-center justify-between animate-fadeIn">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                        <span>{statusNotification}</span>
-                      </div>
-                      <button onClick={() => setStatusNotification('')} className="text-slate-400 hover:text-white">
-                        <X className="w-4 h-4" />
-                      </button>
-                    </div>
-                  )}
 
                   {/* Production Ready & Real Stats Control Panel */}
                   <div className="bg-slate-950 border border-slate-800 rounded-2xl p-5 space-y-4">
@@ -796,17 +805,47 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2 self-end sm:self-auto">
+                        <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+                          {p.isDraft ? (
+                            <button
+                              onClick={() => {
+                                const publishedPost: BlogPost = {
+                                  ...p,
+                                  isDraft: false,
+                                  publishedAt: new Date().toISOString().split('T')[0]
+                                };
+                                onSavePost(publishedPost);
+                                setStatusNotification(`Published article "${p.title}"! It is now live on the homepage.`);
+                              }}
+                              className="px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs flex items-center gap-1 shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
+                              title="Publish immediately to homepage"
+                            >
+                              <CheckCircle2 className="w-3.5 h-3.5" /> Publish Now
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => {
+                                const draftPost: BlogPost = { ...p, isDraft: true };
+                                onSavePost(draftPost);
+                                setStatusNotification(`Moved "${p.title}" to drafts.`);
+                              }}
+                              className="px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 text-xs flex items-center gap-1 transition-all cursor-pointer"
+                              title="Convert to draft"
+                            >
+                              <EyeOff className="w-3.5 h-3.5" /> Unpublish
+                            </button>
+                          )}
+
                           <button
                             onClick={() => startEditPost(p)}
-                            className="p-2 rounded-xl bg-slate-700 text-slate-200 hover:text-white hover:bg-slate-600 transition-colors"
+                            className="p-2 rounded-xl bg-slate-700 text-slate-200 hover:text-white hover:bg-slate-600 transition-colors cursor-pointer"
                             title="Edit Article"
                           >
                             <Edit className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => onDeletePost(p.id)}
-                            className="p-2 rounded-xl bg-rose-500/10 text-rose-400 hover:bg-rose-500 hover:text-white transition-colors"
+                            className="p-2 rounded-xl bg-rose-500/10 text-rose-400 hover:bg-rose-500 hover:text-white transition-colors cursor-pointer"
                             title="Delete Article"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -1173,25 +1212,37 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                     </div>
                   </div>
 
-                  {/* Registrar Quick Instructions */}
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
-                    <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
+                  {/* Registrar Quick Instructions & GoDaddy Hosting Guide */}
+                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
+                    <h4 className="text-xs font-bold text-white flex items-center gap-1.5 uppercase tracking-wider">
                       <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                      Registrar Setup Quick Guide
+                      Domain & Hosting Publishing Guide (GoDaddy / Cloud Hosting)
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-300">
-                      <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1">
-                        <p className="font-bold text-emerald-400">1. Log in to Registrar</p>
-                        <p className="text-[11px] text-slate-400">Open Cloudflare, Namecheap, or GoDaddy and go to DNS Management for {customDomain}.</p>
+                      <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                        <p className="font-bold text-emerald-400">1. Log in to GoDaddy / Registrar</p>
+                        <p className="text-[11px] text-slate-400">Open GoDaddy DNS Management for <strong>{customDomain}</strong>.</p>
                       </div>
-                      <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1">
+                      <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
                         <p className="font-bold text-emerald-400">2. Add A & CNAME Records</p>
-                        <p className="text-[11px] text-slate-400">Paste the A records for `@` and the CNAME record for `www` from the table above.</p>
+                        <p className="text-[11px] text-slate-400">Paste the A records for `@` and CNAME for `www` from the table above.</p>
                       </div>
-                      <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1">
-                        <p className="font-bold text-emerald-400">3. Wait 5-15 Minutes</p>
-                        <p className="text-[11px] text-slate-400">Click 'Verify DNS Propagation' above to confirm global DNS synchronization.</p>
+                      <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
+                        <p className="font-bold text-emerald-400">3. Verify & Launch</p>
+                        <p className="text-[11px] text-slate-400">Click 'Verify DNS Propagation' above to confirm global HTTPS availability.</p>
                       </div>
+                    </div>
+
+                    <div className="bg-slate-950/80 border border-emerald-500/30 p-4 rounded-xl space-y-2 text-xs">
+                      <p className="font-extrabold text-emerald-400 flex items-center gap-1.5">
+                        <Globe className="w-4 h-4" /> GoDaddy cPanel / Static File Hosting Publishing:
+                      </p>
+                      <ol className="list-decimal list-inside text-slate-300 space-y-1 text-[11px]">
+                        <li>Run <code className="text-emerald-300 font-mono">npm run build</code> in your project repository to output production files into <code className="text-emerald-300 font-mono">/dist</code>.</li>
+                        <li>Log in to GoDaddy cPanel &gt; File Manager &gt; open <code className="text-emerald-300 font-mono">public_html</code>.</li>
+                        <li>Upload all contents of the <code className="text-emerald-300 font-mono">/dist</code> directory directly into <code className="text-emerald-300 font-mono">public_html</code>.</li>
+                        <li>Your site is now live at <strong>https://{customDomain}</strong>!</li>
+                      </ol>
                     </div>
                   </div>
                 </div>

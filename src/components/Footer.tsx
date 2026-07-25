@@ -63,8 +63,13 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand Col */}
           <div className="space-y-4 md:col-span-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-slate-950 font-black text-lg">
-                <DollarSign className="w-5 h-5 stroke-[3]" />
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-slate-900 border border-emerald-500/30 shadow-md shrink-0">
+                <img 
+                  src="/images/jays-mascot-logo.webp" 
+                  alt="JaysMoneyGuides Mascot Logo" 
+                  className="w-full h-full object-cover object-top"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <span className="font-extrabold text-lg tracking-tight text-white">
                 Jays<span className="text-emerald-400">Money</span>Guides
@@ -73,8 +78,8 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="text-xs text-slate-400 leading-relaxed">
               Actionable tips, strategies, and blueprints for building profitable online businesses in affiliate marketing, SEO, blogging, and tech.
             </p>
-            <p className="text-[11px] text-slate-500">
-              Founded & Curated by Jay Lopez
+            <p className="text-[11px] text-slate-500 flex items-center gap-1.5">
+              <span>Founded & Curated by Jay Lopez</span>
             </p>
           </div>
 

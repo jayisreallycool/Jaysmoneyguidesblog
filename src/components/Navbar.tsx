@@ -66,15 +66,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                <DollarSign className="w-6 h-6 stroke-[3]" />
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-slate-800 border border-emerald-500/30 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform shrink-0">
+                <img 
+                  src="/images/jays-mascot-logo.webp" 
+                  alt="JaysMoneyGuides Mascot" 
+                  className="w-full h-full object-cover object-top"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <span className="font-extrabold text-xl tracking-tight text-white flex items-center gap-1">
                   Jays<span className="text-emerald-400">Money</span>Guides
                 </span>
                 <span className="block text-[10px] text-slate-400 font-medium tracking-wider uppercase -mt-1">
-                  Actionable Business Blueprint
+                  Actionable Business Blueprints
                 </span>
               </div>
             </button>

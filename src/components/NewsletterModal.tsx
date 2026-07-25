@@ -153,28 +153,39 @@ export const NewsletterModal: React.FC<NewsletterModalProps> = ({ onSubscribeSuc
 
         {!isSubmitted ? (
           <div className="space-y-6">
-            {/* Header / Badge */}
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
-                {triggerSource === 'exit' ? (
-                  <>
-                    <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-                    <span>Before You Go...</span>
-                  </>
-                ) : (
-                  <>
-                    <Gift className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Free Affiliate & SEO Playbook</span>
-                  </>
-                )}
+            {/* Header / Badge & Guide Cover */}
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <div className="w-24 sm:w-28 shrink-0 rounded-xl overflow-hidden border border-emerald-500/30 shadow-xl shadow-emerald-950/40 hidden sm:block">
+                <img 
+                  src="/images/affiliate-marketing-guide-cover.webp" 
+                  alt="Affiliate Marketing for Beginners Guide Cover" 
+                  className="w-full h-auto object-cover"
+                  referrerPolicy="no-referrer"
+                />
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
-                Accelerate Your Digital Revenue with VIP Insights
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                Join <strong className="text-emerald-400">14,200+ smart marketers</strong> getting Jay’s weekly step-by-step affiliate breakdowns, high-ROI SEO blueprints, and proven monetization guides.
-              </p>
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2.5">
+                  {triggerSource === 'exit' ? (
+                    <>
+                      <Zap className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                      <span>Before You Go...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Gift className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Free Affiliate & SEO Playbook</span>
+                    </>
+                  )}
+                </div>
+
+                <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug">
+                  Accelerate Your Digital Revenue with VIP Insights
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                  Join <strong className="text-emerald-400">14,200+ smart marketers</strong> getting Jay’s weekly step-by-step affiliate breakdowns, high-ROI SEO blueprints, and proven monetization guides.
+                </p>
+              </div>
             </div>
 
             {/* Value Highlights */}

@@ -473,7 +473,15 @@ export default function App() {
 
       {/* Hero Header */}
       {!showBookmarksOnly && searchQuery === '' && selectedCategory === 'All' && (
-        <HeroHeader onSubscribeSuccess={handleSubscribeSuccess} />
+        <HeroHeader 
+          onSubscribeSuccess={handleSubscribeSuccess} 
+          onSelectPost={(postId) => {
+            const target = posts.find(p => p.id === postId);
+            if (target) {
+              handleOpenPost(target);
+            }
+          }}
+        />
       )}
 
       {/* Main Container */}

@@ -6,9 +6,9 @@ import { TECH_POSTS } from './posts/techPosts';
 import { ENTREPRENEURSHIP_POSTS } from './posts/entrepreneurshipPosts';
 
 export const INITIAL_POSTS: BlogPost[] = [
-  ...ENTREPRENEURSHIP_POSTS,
-  ...SEO_POSTS,
   ...AFFILIATE_POSTS,
+  ...SEO_POSTS,
+  ...ENTREPRENEURSHIP_POSTS,
   ...BLOGGING_POSTS,
   ...TECH_POSTS
 ];
