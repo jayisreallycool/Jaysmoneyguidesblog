@@ -1,0 +1,6 @@
+{
+  "name": "Jaysmoneyguides",
+  "description": "Actionable blog & guides on affiliate marketing, SEO, blogging, tech, and entrepreneurship for building profitable online businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
