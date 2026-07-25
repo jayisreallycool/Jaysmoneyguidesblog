@@ -12,6 +12,8 @@ import { AuthModal } from './components/AuthModal';
 import { UserProfileModal } from './components/UserProfileModal';
 import { Footer } from './components/Footer';
 import { NewsletterModal } from './components/NewsletterModal';
+import { MediaDatabaseModal } from './components/MediaDatabaseModal';
+import { seedInitialMediaAssets } from './lib/firebase';
 import { SEOHead } from './components/SEOHead';
 import { 
   Search, 
@@ -54,6 +56,11 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('jmg_posts', JSON.stringify(posts));
   }, [posts]);
+
+  // Seed Firebase Media Assets on startup
+  useEffect(() => {
+    seedInitialMediaAssets().catch(err => console.error('Failed seeding images to Firestore:', err));
+  }, []);
 
   // Bookmarks
   const [bookmarkedIds, setBookmarkedIds] = useState<string[]>(() => {
@@ -752,6 +759,12 @@ export default function App() {
           handleLoginSuccess(user);
           setActiveModal('none');
         }}
+      />
+
+      {/* Firestore Image & Asset Database Modal */}
+      <MediaDatabaseModal
+        isOpen={activeModal === 'media-database'}
+        onClose={() => setActiveModal('none')}
       />
 
       {/* User Profile & Saved Guides Modal */}

@@ -27,12 +27,14 @@ import {
   Server,
   ShieldCheck,
   ShieldAlert,
-  Shield
+  Shield,
+  Database
 } from 'lucide-react';
 
 interface AdminConsoleProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenImageDatabase?: () => void;
   posts: BlogPost[];
   onSavePost: (post: BlogPost) => void;
   onDeletePost: (postId: string) => void;
@@ -49,6 +51,7 @@ interface AdminConsoleProps {
 export const AdminConsole: React.FC<AdminConsoleProps> = ({
   isOpen,
   onClose,
+  onOpenImageDatabase,
   posts,
   onSavePost,
   onDeletePost,

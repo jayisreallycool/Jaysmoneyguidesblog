@@ -11,7 +11,8 @@ import {
   X, 
   Sparkles,
   ChevronDown,
-  DollarSign
+  DollarSign,
+  Database
 } from 'lucide-react';
 import { Category, ModalView, User } from '../types';
 
@@ -162,6 +163,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
               )}
             </div>
+
+            {/* Database & Images Link */}
+            <button
+              onClick={() => openModal('media-database')}
+              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors flex items-center gap-1.5 font-bold border border-emerald-500/30"
+              title="View stored website images in Firestore"
+            >
+              <Database className="w-4 h-4 text-emerald-400" />
+              Image DB
+            </button>
 
             {/* Mandatory Pages Triggers */}
             <button
@@ -410,6 +421,15 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mandatory pages */}
           <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
+            <button
+              onClick={() => {
+                openModal('media-database');
+                setIsMobileMenuOpen(false);
+              }}
+              className="flex items-center gap-2 text-sm text-emerald-400 font-bold py-1.5"
+            >
+              <Database className="w-4 h-4 text-emerald-400" /> Firestore Image Database
+            </button>
             <button
               onClick={() => {
                 openModal('contact');

@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "media_assets": {
+      "title": "Media Assets & Images",
+      "description": "Website media assets, infographics, book covers, and logos stored with Firestore database metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "filename": { "type": "string" },
+        "url": { "type": "string" },
+        "category": { "type": "string" },
+        "altText": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "filename", "url"]
+    },
+    "posts": {
+      "title": "Blog Posts & Guides",
+      "description": "Actionable blueprints, posts, and articles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "views": { "type": "number" },
+        "likes": { "type": "number" }
+      }
+    },
+    "subscribers": {
+      "title": "Newsletter Subscribers",
+      "description": "Email subscribers list",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "subscribedAt": { "type": "string" }
+      }
+    },
+    "comments": {
+      "title": "Community Comments",
+      "description": "User comments on articles",
+      "type": "object",
+      "properties": {
+        "postId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  }
+}

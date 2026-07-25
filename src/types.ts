@@ -71,7 +71,7 @@ export interface CategoryTab {
   iconName: string;
 }
 
-export type ModalView = 'none' | 'privacy' | 'terms' | 'contact' | 'admin' | 'post-reader' | 'auth' | 'profile';
+export type ModalView = 'none' | 'privacy' | 'terms' | 'contact' | 'admin' | 'post-reader' | 'auth' | 'profile' | 'media-database';
 
 export interface User {
   id: string;
