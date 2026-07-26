@@ -214,6 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'bg-slate-800 text-slate-300 border-slate-700 hover:text-white hover:border-slate-600'
               }`}
               title="Saved Reading List"
+              aria-label="Saved Reading List"
             >
               <Bookmark className="w-4 h-4" />
               {bookmarkedCount > 0 && (
@@ -329,6 +330,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800"
+              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

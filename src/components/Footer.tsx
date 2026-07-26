@@ -168,6 +168,7 @@ export const Footer: React.FC<FooterProps> = ({
                 />
                 <button
                   type="submit"
+                  aria-label="Subscribe to newsletter"
                   className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3 py-2 rounded-xl text-xs flex items-center justify-center shrink-0"
                 >
                   <Send className="w-3.5 h-3.5" />

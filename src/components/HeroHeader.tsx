@@ -78,6 +78,10 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
             alt="JaysMoneyGuides Affiliate Marketing Guide Artwork" 
             className="w-full h-auto object-cover opacity-60 filter brightness-115 contrast-110 drop-shadow-[0_20px_50px_rgba(16,185,129,0.3)]"
             referrerPolicy="no-referrer"
+            loading="eager"
+            decoding="async"
+            width="720"
+            height="1000"
           />
         </motion.div>
 
@@ -91,6 +95,10 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
             alt="JaysMoneyGuides Hero Wallpaper" 
             className="w-full h-full object-cover object-center filter brightness-110 contrast-105"
             referrerPolicy="no-referrer"
+            loading="eager"
+            decoding="async"
+            width="1200"
+            height="675"
           />
         </motion.div>
       </div>

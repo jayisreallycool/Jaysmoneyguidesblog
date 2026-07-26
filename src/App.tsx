@@ -1,19 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import { BlogPost, Category, ModalView, ContactMessage, Subscriber, AnalyticsStats, Comment, User } from './types';
 import { INITIAL_POSTS } from './data/initialPosts';
 import { Navbar } from './components/Navbar';
 import { HeroHeader } from './components/HeroHeader';
 import { CategoryTabs } from './components/CategoryTabs';
 import { PostCard } from './components/PostCard';
-import { PostReaderModal } from './components/PostReaderModal';
-import { MandatoryPagesModal } from './components/MandatoryPagesModal';
-import { AdminConsole } from './components/AdminConsole';
-import { AuthModal } from './components/AuthModal';
-import { UserProfileModal } from './components/UserProfileModal';
 import { Footer } from './components/Footer';
-import { NewsletterModal } from './components/NewsletterModal';
-import { MediaDatabaseModal } from './components/MediaDatabaseModal';
-import { CookieConsent } from './components/CookieConsent';
 import { seedInitialMediaAssets } from './lib/firebase';
 import { SEOHead } from './components/SEOHead';
 import { 
@@ -28,6 +20,16 @@ import {
   List,
   AlertCircle
 } from 'lucide-react';
+
+// Lazy-loaded Modal Components for faster initial page render & optimal bundle size
+const PostReaderModal = React.lazy(() => import('./components/PostReaderModal').then(m => ({ default: m.PostReaderModal })));
+const MandatoryPagesModal = React.lazy(() => import('./components/MandatoryPagesModal').then(m => ({ default: m.MandatoryPagesModal })));
+const AdminConsole = React.lazy(() => import('./components/AdminConsole').then(m => ({ default: m.AdminConsole })));
+const AuthModal = React.lazy(() => import('./components/AuthModal').then(m => ({ default: m.AuthModal })));
+const UserProfileModal = React.lazy(() => import('./components/UserProfileModal').then(m => ({ default: m.UserProfileModal })));
+const NewsletterModal = React.lazy(() => import('./components/NewsletterModal').then(m => ({ default: m.NewsletterModal })));
+const MediaDatabaseModal = React.lazy(() => import('./components/MediaDatabaseModal').then(m => ({ default: m.MediaDatabaseModal })));
+const CookieConsent = React.lazy(() => import('./components/CookieConsent').then(m => ({ default: m.CookieConsent })));
 
 export default function App() {
   // State: Posts & Persistent Collections
@@ -493,7 +495,7 @@ export default function App() {
       )}
 
       {/* Main Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <main id="main-content" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
         {/* Category Tabs Section */}
         <div className="space-y-4">
@@ -717,76 +719,84 @@ export default function App() {
 
       </main>
 
-      {/* Article Reader Modal */}
-      {activeModal === 'post-reader' && selectedPost && (
-        <PostReaderModal
-          post={selectedPost}
+      <Suspense fallback={null}>
+        {/* Article Reader Modal */}
+        {activeModal === 'post-reader' && selectedPost && (
+          <PostReaderModal
+            post={selectedPost}
+            onClose={() => setActiveModal('none')}
+            isBookmarked={bookmarkedIds.includes(selectedPost.id)}
+            onToggleBookmark={handleToggleBookmark}
+            isLiked={likedIds.includes(selectedPost.id)}
+            onLikePost={handleLikePost}
+            comments={comments}
+            onAddComment={handleAddComment}
+            onTrackAffiliateClick={handleTrackAffiliateClick}
+          />
+        )}
+
+        {/* Mandatory Pages Modal (Privacy, Terms, Contact) */}
+        <MandatoryPagesModal
+          view={activeModal}
           onClose={() => setActiveModal('none')}
-          isBookmarked={bookmarkedIds.includes(selectedPost.id)}
-          onToggleBookmark={handleToggleBookmark}
-          isLiked={likedIds.includes(selectedPost.id)}
-          onLikePost={handleLikePost}
-          comments={comments}
-          onAddComment={handleAddComment}
-          onTrackAffiliateClick={handleTrackAffiliateClick}
+          onSelectTab={(tab) => setActiveModal(tab)}
+          onNewContactMessage={handleNewContactMessage}
         />
-      )}
 
-      {/* Mandatory Pages Modal (Privacy, Terms, Contact) */}
-      <MandatoryPagesModal
-        view={activeModal}
-        onClose={() => setActiveModal('none')}
-        onSelectTab={(tab) => setActiveModal(tab)}
-        onNewContactMessage={handleNewContactMessage}
-      />
+        {/* Admin Console Overlay */}
+        <AdminConsole
+          isOpen={activeModal === 'admin'}
+          onClose={() => setActiveModal('none')}
+          posts={posts}
+          onSavePost={handleSavePost}
+          onDeletePost={handleDeletePost}
+          contactMessages={contactMessages}
+          onMarkMessageRead={handleMarkMessageRead}
+          onDeleteMessage={handleDeleteMessage}
+          subscribers={subscribers}
+          stats={stats}
+          isProductionMode={isProductionMode}
+          onResetStatsToProduction={handleResetStatsToProduction}
+          onSeedDemoStats={handleSeedDemoStats}
+        />
 
-      {/* Admin Console Overlay */}
-      <AdminConsole
-        isOpen={activeModal === 'admin'}
-        onClose={() => setActiveModal('none')}
-        posts={posts}
-        onSavePost={handleSavePost}
-        onDeletePost={handleDeletePost}
-        contactMessages={contactMessages}
-        onMarkMessageRead={handleMarkMessageRead}
-        onDeleteMessage={handleDeleteMessage}
-        subscribers={subscribers}
-        stats={stats}
-        isProductionMode={isProductionMode}
-        onResetStatsToProduction={handleResetStatsToProduction}
-        onSeedDemoStats={handleSeedDemoStats}
-      />
+        {/* Authentication Modal */}
+        <AuthModal
+          isOpen={activeModal === 'auth'}
+          onClose={() => setActiveModal('none')}
+          onLoginSuccess={(user) => {
+            handleLoginSuccess(user);
+            setActiveModal('none');
+          }}
+        />
 
-      {/* Authentication Modal */}
-      <AuthModal
-        isOpen={activeModal === 'auth'}
-        onClose={() => setActiveModal('none')}
-        onLoginSuccess={(user) => {
-          handleLoginSuccess(user);
-          setActiveModal('none');
-        }}
-      />
+        {/* Firestore Image & Asset Database Modal */}
+        <MediaDatabaseModal
+          isOpen={activeModal === 'media-database'}
+          onClose={() => setActiveModal('none')}
+        />
 
-      {/* Firestore Image & Asset Database Modal */}
-      <MediaDatabaseModal
-        isOpen={activeModal === 'media-database'}
-        onClose={() => setActiveModal('none')}
-      />
+        {/* User Profile & Saved Guides Modal */}
+        <UserProfileModal
+          isOpen={activeModal === 'profile'}
+          onClose={() => setActiveModal('none')}
+          user={currentUser}
+          onUpdateUser={handleUpdateUser}
+          onLogout={handleLogout}
+          bookmarkedPosts={bookmarkedPostsList}
+          likedPosts={likedPostsList}
+          onOpenReader={(post) => {
+            setSelectedPost(post);
+            setActiveModal('post-reader');
+          }}
+        />
 
-      {/* User Profile & Saved Guides Modal */}
-      <UserProfileModal
-        isOpen={activeModal === 'profile'}
-        onClose={() => setActiveModal('none')}
-        user={currentUser}
-        onUpdateUser={handleUpdateUser}
-        onLogout={handleLogout}
-        bookmarkedPosts={bookmarkedPostsList}
-        likedPosts={likedPostsList}
-        onOpenReader={(post) => {
-          setSelectedPost(post);
-          setActiveModal('post-reader');
-        }}
-      />
+        {/* Non-Intrusive Exit-Intent / 30s Activity Newsletter Capture Modal */}
+        <NewsletterModal onSubscribeSuccess={handleSubscribeSuccess} />
+
+        {/* Cookie Consent Popup Banner */}
+        <CookieConsent onOpenPrivacy={() => setActiveModal('privacy')} />
+      </Suspense>
 
       {/* Footer */}
       <Footer
@@ -797,12 +807,6 @@ export default function App() {
         openModal={(view) => setActiveModal(view)}
         onSubscribeSuccess={handleSubscribeSuccess}
       />
-
-      {/* Non-Intrusive Exit-Intent / 30s Activity Newsletter Capture Modal */}
-      <NewsletterModal onSubscribeSuccess={handleSubscribeSuccess} />
-
-      {/* Cookie Consent Popup Banner */}
-      <CookieConsent onOpenPrivacy={() => setActiveModal('privacy')} />
 
     </div>
   );

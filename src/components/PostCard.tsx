@@ -85,6 +85,7 @@ export const PostCard: React.FC<PostCardProps> = ({
               : 'bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-900/80 border border-slate-700/60'
           }`}
           title={isBookmarked ? 'Saved to bookmarks' : 'Bookmark post'}
+          aria-label={isBookmarked ? 'Remove bookmark' : 'Bookmark post'}
         >
           <Bookmark className="w-4 h-4" />
         </button>
@@ -142,6 +143,10 @@ export const PostCard: React.FC<PostCardProps> = ({
               src={post.author.avatar}
               alt={post.author.name}
               className="w-7 h-7 rounded-full object-cover border border-emerald-500/30"
+              loading="lazy"
+              decoding="async"
+              width="28"
+              height="28"
             />
             <div>
               <p className="font-bold text-slate-200 text-xs">{post.author.name}</p>
@@ -155,6 +160,7 @@ export const PostCard: React.FC<PostCardProps> = ({
             </span>
             <button
               onClick={(e) => onLikePost(post.id, e)}
+              aria-label={isLiked ? 'Unlike post' : 'Like post'}
               className={`flex items-center gap-1 px-2 py-1 rounded-lg transition-colors ${
                 isLiked
                   ? 'text-rose-400 bg-rose-500/10 font-bold'
