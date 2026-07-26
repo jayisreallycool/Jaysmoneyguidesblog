@@ -1,29 +1,31 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Media assets / images - publicly readable and writeable
+    // Default rule for all collections
+    match /{document=**} {
+      allow read, write: if true;
+    }
+
+    // Explicit collection definitions
     match /media_assets/{assetId} {
       allow read, write: if true;
     }
     
-    // Blog posts
     match /posts/{postId} {
       allow read, write: if true;
     }
 
-    // Newsletter Subscribers
     match /subscribers/{subscriberId} {
-      allow read, create, update, delete: if true;
+      allow read, write: if true;
     }
 
-    // Article Comments
     match /comments/{commentId} {
-      allow read, create, update, delete: if true;
+      allow read, write: if true;
     }
 
-    // Registered Users
     match /users/{userId} {
       allow read, write: if true;
     }
   }
 }
+

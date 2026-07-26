@@ -89,8 +89,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Desktop Search Bar */}
           <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
             <div className="relative w-full">
+              <label htmlFor="desktop-search-input" className="sr-only">Search guides</label>
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
+                id="desktop-search-input"
+                name="searchQuery"
                 type="text"
                 placeholder="Search affiliate strategies, SEO tips, tech tools..."
                 value={searchQuery}
@@ -377,8 +380,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           )}
           {/* Mobile Search */}
           <div className="relative w-full">
+            <label htmlFor="mobile-search-input" className="sr-only">Search guides</label>
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
+              id="mobile-search-input"
+              name="mobileSearchQuery"
               type="text"
               placeholder="Search guides..."
               value={searchQuery}

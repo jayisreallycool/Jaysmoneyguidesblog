@@ -12,7 +12,7 @@ export const ENTREPRENEURSHIP_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-25',
     readTimeMinutes: 10,
@@ -85,7 +85,7 @@ Here is the realistic month-by-month roadmap.
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-21',
     readTimeMinutes: 7,
@@ -134,7 +134,7 @@ Every time a payout hits my business Stripe or PayPal account, it gets automatic
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-17',
     readTimeMinutes: 8,
@@ -183,7 +183,7 @@ Once created, digital content costs **$0 to replicate**. An article you wrote on
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-13',
     readTimeMinutes: 7,

@@ -12,7 +12,7 @@ export const SEO_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-21',
     readTimeMinutes: 9,
@@ -93,7 +93,7 @@ If your site takes more than 2 seconds to load on mobile, 40% of visitors hit th
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-17',
     readTimeMinutes: 7,
@@ -149,7 +149,7 @@ Within 5 months, my small site sat in spot #1 and #2 on Google above major news 
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-13',
     readTimeMinutes: 6,
@@ -200,7 +200,7 @@ Within 48 hours, search spiders recrawl the high-traffic page, follow the link, 
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-09',
     readTimeMinutes: 8,
@@ -249,7 +249,7 @@ Create a thorough, well-formatted guide answering that exact thread question, an
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-05',
     readTimeMinutes: 10,
@@ -296,7 +296,7 @@ Think of sites like NomadList (*"Cost of Living in [City]"*) or Zapier (*"How to
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-01',
     readTimeMinutes: 6,
@@ -341,7 +341,7 @@ Those extra visual elements are called **Rich Snippets**, and they are created u
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-26',
     readTimeMinutes: 7,
@@ -386,7 +386,7 @@ If your page jumps around while loading or takes 5 seconds to respond to a touch
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-22',
     readTimeMinutes: 8,
@@ -432,7 +432,7 @@ Running a quick 60-minute SEO audit twice a year keeps your domain healthy and c
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-18',
     readTimeMinutes: 7,
@@ -477,7 +477,7 @@ Getting listed in those top 3 map spots delivers massive phone calls and leads w
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-12',
     readTimeMinutes: 8,

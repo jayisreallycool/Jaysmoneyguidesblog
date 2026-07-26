@@ -1,4 +1,5 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 import { 
   getFirestore, 
   collection, 
@@ -21,6 +22,55 @@ const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
 // Initialize Firestore with custom database ID from config
 export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+export const auth = getAuth(app);
+
+export enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+export interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId?: string | null;
+    email?: string | null;
+    emailVerified?: boolean | null;
+    isAnonymous?: boolean | null;
+    tenantId?: string | null;
+    providerInfo?: {
+      providerId?: string | null;
+      email?: string | null;
+    }[];
+  }
+}
+
+export function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errMsg = error instanceof Error ? error.message : String(error);
+  const errInfo: FirestoreErrorInfo = {
+    error: errMsg,
+    operationType,
+    path,
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+      emailVerified: auth.currentUser?.emailVerified,
+      isAnonymous: auth.currentUser?.isAnonymous,
+      tenantId: auth.currentUser?.tenantId,
+      providerInfo: auth.currentUser?.providerData?.map(provider => ({
+        providerId: provider.providerId,
+        email: provider.email,
+      })) || []
+    },
+  };
+  console.warn(`[Firestore ${operationType}] ${path}: ${errMsg}`);
+  return errInfo;
+}
 
 export interface MediaAsset {
   id: string;
@@ -98,9 +148,15 @@ export async function seedInitialMediaAssets(): Promise<MediaAsset[]> {
     const snapshot = await getDocs(assetsRef);
 
     if (snapshot.empty) {
-      console.log('Seeding initial media assets into Firestore database...');
-      for (const asset of INITIAL_MEDIA_ASSETS) {
-        await setDoc(doc(db, 'media_assets', asset.id), asset);
+      if (auth.currentUser) {
+        console.log('Seeding initial media assets into Firestore database...');
+        for (const asset of INITIAL_MEDIA_ASSETS) {
+          try {
+            await setDoc(doc(db, 'media_assets', asset.id), asset);
+          } catch {
+            // Ignore write permission error if user is not admin
+          }
+        }
       }
       return INITIAL_MEDIA_ASSETS;
     } else {
@@ -111,7 +167,7 @@ export async function seedInitialMediaAssets(): Promise<MediaAsset[]> {
       return existingAssets;
     }
   } catch (err) {
-    console.error('Error seeding/fetching media assets from Firestore:', err);
+    handleFirestoreError(err, OperationType.LIST, 'media_assets');
     return INITIAL_MEDIA_ASSETS;
   }
 }
@@ -132,7 +188,7 @@ export async function getMediaAssetsFromDB(): Promise<MediaAsset[]> {
     });
     return list;
   } catch (err) {
-    console.error('Error getting media assets:', err);
+    handleFirestoreError(err, OperationType.GET, 'media_assets');
     return INITIAL_MEDIA_ASSETS;
   }
 }
@@ -144,7 +200,7 @@ export async function saveMediaAssetToDB(asset: MediaAsset): Promise<void> {
   try {
     await setDoc(doc(db, 'media_assets', asset.id), asset);
   } catch (err) {
-    console.error('Error saving media asset to Firestore:', err);
+    handleFirestoreError(err, OperationType.WRITE, `media_assets/${asset.id}`);
   }
 }
 
@@ -155,6 +211,6 @@ export async function deleteMediaAssetFromDB(id: string): Promise<void> {
   try {
     await deleteDoc(doc(db, 'media_assets', id));
   } catch (err) {
-    console.error('Error deleting media asset from Firestore:', err);
+    handleFirestoreError(err, OperationType.DELETE, `media_assets/${id}`);
   }
 }

@@ -211,8 +211,11 @@ export const NewsletterModal: React.FC<NewsletterModalProps> = ({ onSubscribeSuc
             {/* Subscription Form */}
             <form onSubmit={handleSubmit} className="space-y-3">
               <div className="relative">
+                <label htmlFor="newsletter-modal-email" className="sr-only">Email address</label>
                 <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
+                  id="newsletter-modal-email"
+                  name="email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

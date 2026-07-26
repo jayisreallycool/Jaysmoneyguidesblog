@@ -211,8 +211,10 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
               ) : (
                 <form onSubmit={handleSaveProfile} className="space-y-3">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Display Name</label>
+                    <label htmlFor="profile-name-input" className="block text-xs font-semibold text-slate-300 mb-1">Display Name</label>
                     <input
+                      id="profile-name-input"
+                      name="name"
                       type="text"
                       required
                       value={name}
@@ -222,8 +224,10 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Avatar Image URL</label>
+                    <label htmlFor="profile-avatar-input" className="block text-xs font-semibold text-slate-300 mb-1">Avatar Image URL</label>
                     <input
+                      id="profile-avatar-input"
+                      name="avatar"
                       type="url"
                       value={avatar}
                       onChange={(e) => setAvatar(e.target.value)}
@@ -233,8 +237,10 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Bio</label>
+                    <label htmlFor="profile-bio-input" className="block text-xs font-semibold text-slate-300 mb-1">Bio</label>
                     <textarea
+                      id="profile-bio-input"
+                      name="bio"
                       rows={3}
                       value={bio}
                       onChange={(e) => setBio(e.target.value)}

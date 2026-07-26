@@ -13,6 +13,7 @@ import { UserProfileModal } from './components/UserProfileModal';
 import { Footer } from './components/Footer';
 import { NewsletterModal } from './components/NewsletterModal';
 import { MediaDatabaseModal } from './components/MediaDatabaseModal';
+import { CookieConsent } from './components/CookieConsent';
 import { seedInitialMediaAssets } from './lib/firebase';
 import { SEOHead } from './components/SEOHead';
 import { 
@@ -59,7 +60,7 @@ export default function App() {
 
   // Seed Firebase Media Assets on startup
   useEffect(() => {
-    seedInitialMediaAssets().catch(err => console.error('Failed seeding images to Firestore:', err));
+    seedInitialMediaAssets().catch(() => {});
   }, []);
 
   // Bookmarks
@@ -541,7 +542,10 @@ export default function App() {
               {/* Difficulty Selector */}
               <div className="flex items-center gap-1.5 text-xs text-slate-400">
                 <SlidersHorizontal className="w-3.5 h-3.5" />
+                <label htmlFor="app-filter-difficulty" className="sr-only">Filter by Difficulty</label>
                 <select
+                  id="app-filter-difficulty"
+                  name="selectedDifficulty"
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value as any)}
                   className="bg-slate-800 border border-slate-700 text-slate-200 rounded-xl px-2.5 py-1.5 text-xs focus:outline-none focus:border-emerald-500"
@@ -555,8 +559,10 @@ export default function App() {
 
               {/* Sort By Selector */}
               <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                <span>Sort:</span>
+                <label htmlFor="app-sort-by" className="cursor-pointer">Sort:</label>
                 <select
+                  id="app-sort-by"
+                  name="sortBy"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
                   className="bg-slate-800 border border-slate-700 text-slate-200 rounded-xl px-2.5 py-1.5 text-xs focus:outline-none focus:border-emerald-500 font-medium"
@@ -794,6 +800,9 @@ export default function App() {
 
       {/* Non-Intrusive Exit-Intent / 30s Activity Newsletter Capture Modal */}
       <NewsletterModal onSubscribeSuccess={handleSubscribeSuccess} />
+
+      {/* Cookie Consent Popup Banner */}
+      <CookieConsent onOpenPrivacy={() => setActiveModal('privacy')} />
 
     </div>
   );

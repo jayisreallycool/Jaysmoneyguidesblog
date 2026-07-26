@@ -167,8 +167,11 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
             <div className="flex items-center justify-between pt-2 border-t border-slate-800 text-xs sm:text-sm">
               <div className="flex items-center gap-3">
                 <img
-                  src={post.author.avatar}
+                  src={post.author.avatar || '/images/jays-mascot-logo.webp'}
                   alt={post.author.name}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/images/jays-mascot-logo.webp';
+                  }}
                   className="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/40"
                 />
                 <div>
@@ -199,8 +202,11 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
           {/* Hero Cover Image */}
           <div className="rounded-2xl overflow-hidden border border-slate-800 aspect-[21/9] bg-slate-950">
             <img
-              src={post.coverImage}
+              src={post.coverImage || '/images/affiliate-marketing-guide-cover.webp'}
               alt={post.title}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/images/affiliate-marketing-guide-cover.webp';
+              }}
               className="w-full h-full object-cover"
             />
           </div>
@@ -239,6 +245,27 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
               }
               if (paragraph.startsWith('### ')) {
                 return <h4 key={index} className="text-lg font-bold text-white mt-4 mb-2">{paragraph.replace('### ', '')}</h4>;
+              }
+              const imgMatch = paragraph.match(/^!\[(.*?)\]\((.*?)\)/);
+              if (imgMatch) {
+                const altText = imgMatch[1];
+                const imgSrc = imgMatch[2];
+                return (
+                  <div key={index} className="my-6 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl bg-slate-950">
+                    <img
+                      src={imgSrc}
+                      alt={altText}
+                      className="w-full h-auto object-cover max-h-[500px]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {altText && (
+                      <p className="text-center text-xs text-slate-400 py-2 bg-slate-950/80 border-t border-slate-800 font-medium italic">
+                        {altText}
+                      </p>
+                    )}
+                  </div>
+                );
               }
               if (paragraph.startsWith('* ')) {
                 return (
@@ -351,23 +378,33 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
                 </div>
               )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <input
-                  type="text"
+                <div>
+                  <label htmlFor="comment-author-name" className="sr-only">Your Name or Handle</label>
+                  <input
+                    id="comment-author-name"
+                    name="commentName"
+                    type="text"
+                    required
+                    placeholder="Your Name / Handle"
+                    value={commentName}
+                    onChange={(e) => setCommentName(e.target.value)}
+                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="comment-content-text" className="sr-only">Comment message</label>
+                <textarea
+                  id="comment-content-text"
+                  name="commentText"
                   required
-                  placeholder="Your Name / Handle"
-                  value={commentName}
-                  onChange={(e) => setCommentName(e.target.value)}
-                  className="bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
+                  rows={3}
+                  placeholder="Ask Jay a question or share your experience with this strategy..."
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                  className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
                 />
               </div>
-              <textarea
-                required
-                rows={3}
-                placeholder="Ask Jay a question or share your experience with this strategy..."
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500"
-              />
               <button
                 type="submit"
                 className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2 transition-all ml-auto"

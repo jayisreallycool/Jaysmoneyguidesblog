@@ -155,7 +155,10 @@ export const Footer: React.FC<FooterProps> = ({
               </p>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2">
+                <label htmlFor="footer-email-input" className="sr-only">Email address</label>
                 <input
+                  id="footer-email-input"
+                  name="email"
                   type="email"
                   required
                   placeholder="Your email address"

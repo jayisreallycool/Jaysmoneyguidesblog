@@ -187,8 +187,10 @@ export const MandatoryPagesModal: React.FC<MandatoryPagesModalProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Your Full Name *</label>
+                      <label htmlFor="contact-name-input" className="block text-xs font-semibold text-slate-300 mb-1">Your Full Name *</label>
                       <input
+                        id="contact-name-input"
+                        name="name"
                         type="text"
                         required
                         placeholder="Jay Lopez"
@@ -198,8 +200,10 @@ export const MandatoryPagesModal: React.FC<MandatoryPagesModalProps> = ({
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Your Email Address *</label>
+                      <label htmlFor="contact-email-input" className="block text-xs font-semibold text-slate-300 mb-1">Your Email Address *</label>
                       <input
+                        id="contact-email-input"
+                        name="email"
                         type="email"
                         required
                         placeholder="you@example.com"
@@ -211,8 +215,10 @@ export const MandatoryPagesModal: React.FC<MandatoryPagesModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Inquiry Subject</label>
+                    <label htmlFor="contact-subject-select" className="block text-xs font-semibold text-slate-300 mb-1">Inquiry Subject</label>
                     <select
+                      id="contact-subject-select"
+                      name="subject"
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
                       className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500"
@@ -226,8 +232,10 @@ export const MandatoryPagesModal: React.FC<MandatoryPagesModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Your Message *</label>
+                    <label htmlFor="contact-message-textarea" className="block text-xs font-semibold text-slate-300 mb-1">Your Message *</label>
                     <textarea
+                      id="contact-message-textarea"
+                      name="message"
                       required
                       rows={5}
                       placeholder="Write your detailed message or question here..."

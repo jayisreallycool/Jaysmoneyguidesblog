@@ -47,8 +47,11 @@ export const PostCard: React.FC<PostCardProps> = ({
       {/* Cover Image Header */}
       <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
         <img
-          src={post.coverImage}
+          src={post.coverImage || '/images/affiliate-marketing-guide-cover.webp'}
           alt={post.title}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = '/images/affiliate-marketing-guide-cover.webp';
+          }}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           decoding="async"

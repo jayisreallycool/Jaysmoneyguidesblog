@@ -165,8 +165,11 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
           
           {/* Search bar */}
           <div className="relative flex-1">
+            <label htmlFor="media-search-input" className="sr-only">Search media assets</label>
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input 
+              id="media-search-input"
+              name="searchQuery"
               type="text"
               placeholder="Search stored images by title, alt text, or tag..."
               value={searchQuery}
@@ -211,8 +214,10 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Image Title *</label>
+                <label htmlFor="media-new-title" className="block text-[11px] font-medium text-slate-400 mb-1">Image Title *</label>
                 <input 
+                  id="media-new-title"
+                  name="title"
                   type="text" 
                   required
                   placeholder="e.g., High-Ticket Funnel Diagram" 
@@ -222,8 +227,10 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Image URL / Local Path *</label>
+                <label htmlFor="media-new-url" className="block text-[11px] font-medium text-slate-400 mb-1">Image URL / Local Path *</label>
                 <input 
+                  id="media-new-url"
+                  name="url"
                   type="text" 
                   required
                   placeholder="e.g., /images/my-infographic.webp or https://..." 
@@ -233,8 +240,10 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
                 />
               </div>
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Category</label>
+                <label htmlFor="media-new-category" className="block text-[11px] font-medium text-slate-400 mb-1">Category</label>
                 <select 
+                  id="media-new-category"
+                  name="category"
                   value={newCategory}
                   onChange={(e) => setNewCategory(e.target.value as any)}
                   className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500"
@@ -246,8 +255,10 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
                 </select>
               </div>
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">Alt Text</label>
+                <label htmlFor="media-new-alt" className="block text-[11px] font-medium text-slate-400 mb-1">Alt Text</label>
                 <input 
+                  id="media-new-alt"
+                  name="altText"
                   type="text" 
                   placeholder="SEO descriptive alt text" 
                   value={newAltText}
@@ -257,8 +268,10 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
               </div>
             </div>
             <div>
-              <label className="block text-[11px] font-medium text-slate-400 mb-1">Description / Notes</label>
+              <label htmlFor="media-new-desc" className="block text-[11px] font-medium text-slate-400 mb-1">Description / Notes</label>
               <input 
+                id="media-new-desc"
+                name="description"
                 type="text" 
                 placeholder="Where or how to use this image..." 
                 value={newDescription}

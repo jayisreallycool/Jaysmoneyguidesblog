@@ -12,7 +12,7 @@ export const BLOGGING_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-23',
     readTimeMinutes: 10,
@@ -90,7 +90,7 @@ Don't launch a blog with zero content. Before telling anyone about your site, wr
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-19',
     readTimeMinutes: 7,
@@ -161,7 +161,7 @@ Read your draft out loud. If you trip over a phrase, rewrite it! That is how you
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-16',
     readTimeMinutes: 8,
@@ -218,7 +218,7 @@ Keep your free newsletter focused on high-level strategy. Put your **deep execut
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-12',
     readTimeMinutes: 6,
@@ -264,7 +264,7 @@ Great blog UX (User Experience) removes friction between the reader and your wor
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-07',
     readTimeMinutes: 7,
@@ -313,7 +313,7 @@ Smart creators work off the **Hub-and-Spoke model**:
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-03',
     readTimeMinutes: 8,
@@ -367,7 +367,7 @@ Here is the real financial comparison based on RPM (Revenue Per 1,000 Visitors).
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-28',
     readTimeMinutes: 7,
@@ -414,7 +414,7 @@ Organize your 52 yearly posts into 4 categories (13 posts each):
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-24',
     readTimeMinutes: 6,
@@ -461,7 +461,7 @@ You aren't claiming to have a PhD in marketing. You are simply sharing honest da
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-19',
     readTimeMinutes: 7,
@@ -507,7 +507,7 @@ If you want editors of major blogs to say YES to your pitch, you must demonstrat
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-06-14',
     readTimeMinutes: 6,

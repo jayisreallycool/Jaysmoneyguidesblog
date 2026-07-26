@@ -592,8 +592,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Post Title *</label>
+                      <label htmlFor="admin-post-title" className="block text-xs font-semibold text-slate-300 mb-1">Post Title *</label>
                       <input
+                        id="admin-post-title"
+                        name="title"
                         type="text"
                         required
                         placeholder="e.g. 7 SEO Mistakes Killing Your Blog's Traffic"
@@ -604,8 +606,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Category *</label>
+                      <label htmlFor="admin-post-category" className="block text-xs font-semibold text-slate-300 mb-1">Category *</label>
                       <select
+                        id="admin-post-category"
+                        name="category"
                         value={postCategory}
                         onChange={(e) => setPostCategory(e.target.value as any)}
                         className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500"
@@ -621,8 +625,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Difficulty Level</label>
+                      <label htmlFor="admin-post-difficulty" className="block text-xs font-semibold text-slate-300 mb-1">Difficulty Level</label>
                       <select
+                        id="admin-post-difficulty"
+                        name="difficulty"
                         value={postDifficulty}
                         onChange={(e) => setPostDifficulty(e.target.value as any)}
                         className="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-emerald-500"
@@ -634,8 +640,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Read Time (minutes)</label>
+                      <label htmlFor="admin-post-readtime" className="block text-xs font-semibold text-slate-300 mb-1">Read Time (minutes)</label>
                       <input
+                        id="admin-post-readtime"
+                        name="readTimeMinutes"
                         type="number"
                         min="1"
                         max="60"
@@ -646,8 +654,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Tags (comma separated)</label>
+                      <label htmlFor="admin-post-tags" className="block text-xs font-semibold text-slate-300 mb-1">Tags (comma separated)</label>
                       <input
+                        id="admin-post-tags"
+                        name="tags"
                         type="text"
                         placeholder="Affiliate, SaaS, Growth"
                         value={postTags}
@@ -658,8 +668,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Cover Image URL</label>
+                    <label htmlFor="admin-post-coverimage" className="block text-xs font-semibold text-slate-300 mb-1">Cover Image URL</label>
                     <input
+                      id="admin-post-coverimage"
+                      name="coverImage"
                       type="url"
                       value={postCoverImage}
                       onChange={(e) => setPostCoverImage(e.target.value)}
@@ -668,8 +680,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Post Excerpt / Meta Description</label>
+                    <label htmlFor="admin-post-excerpt" className="block text-xs font-semibold text-slate-300 mb-1">Post Excerpt / Meta Description</label>
                     <textarea
+                      id="admin-post-excerpt"
+                      name="excerpt"
                       rows={2}
                       placeholder="Brief summary displayed on cards..."
                       value={postExcerpt}
@@ -679,8 +693,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Actionable Key Takeaways (One per line)</label>
+                    <label htmlFor="admin-post-keytakeaways" className="block text-xs font-semibold text-slate-300 mb-1">Actionable Key Takeaways (One per line)</label>
                     <textarea
+                      id="admin-post-keytakeaways"
+                      name="keyTakeaways"
                       rows={3}
                       placeholder="Takeaway 1&#10;Takeaway 2&#10;Takeaway 3"
                       value={postKeyTakeaways}
@@ -695,40 +711,62 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                       <DollarSign className="w-4 h-4" /> Recommended Affiliate Tool Highlight (Optional)
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <input
-                        type="text"
-                        placeholder="Tool Name (e.g. ConvertKit)"
-                        value={affiliateName}
-                        onChange={(e) => setAffiliateName(e.target.value)}
-                        className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
-                      />
-                      <input
-                        type="url"
-                        placeholder="Affiliate Referral Link"
-                        value={affiliateLink}
-                        onChange={(e) => setAffiliateLink(e.target.value)}
-                        className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Short Tool Description"
-                        value={affiliateDesc}
-                        onChange={(e) => setAffiliateDesc(e.target.value)}
-                        className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Promo Code (e.g. JAYMONEY)"
-                        value={affiliateDiscount}
-                        onChange={(e) => setAffiliateDiscount(e.target.value)}
-                        className="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
-                      />
+                      <div>
+                        <label htmlFor="admin-affiliate-name" className="sr-only">Tool Name</label>
+                        <input
+                          id="admin-affiliate-name"
+                          name="affiliateName"
+                          type="text"
+                          placeholder="Tool Name (e.g. ConvertKit)"
+                          value={affiliateName}
+                          onChange={(e) => setAffiliateName(e.target.value)}
+                          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="admin-affiliate-link" className="sr-only">Referral Link</label>
+                        <input
+                          id="admin-affiliate-link"
+                          name="affiliateLink"
+                          type="url"
+                          placeholder="Affiliate Referral Link"
+                          value={affiliateLink}
+                          onChange={(e) => setAffiliateLink(e.target.value)}
+                          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="admin-affiliate-desc" className="sr-only">Tool Description</label>
+                        <input
+                          id="admin-affiliate-desc"
+                          name="affiliateDesc"
+                          type="text"
+                          placeholder="Short Tool Description"
+                          value={affiliateDesc}
+                          onChange={(e) => setAffiliateDesc(e.target.value)}
+                          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="admin-affiliate-discount" className="sr-only">Promo Code</label>
+                        <input
+                          id="admin-affiliate-discount"
+                          name="affiliateDiscount"
+                          type="text"
+                          placeholder="Promo Code (e.g. JAYMONEY)"
+                          value={affiliateDiscount}
+                          onChange={(e) => setAffiliateDiscount(e.target.value)}
+                          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white"
+                        />
+                      </div>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 mb-1">Article Body (Supports Markdown #, ##, * list)</label>
+                    <label htmlFor="admin-post-content" className="block text-xs font-semibold text-slate-300 mb-1">Article Body (Supports Markdown #, ##, * list)</label>
                     <textarea
+                      id="admin-post-content"
+                      name="content"
                       required
                       rows={8}
                       placeholder="# Main Header&#10;&#10;Write article content here..."
@@ -739,8 +777,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                   </div>
 
                   <div className="flex items-center gap-6 pt-2">
-                    <label className="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
+                    <label htmlFor="admin-post-featured" className="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
                       <input
+                        id="admin-post-featured"
+                        name="featured"
                         type="checkbox"
                         checked={postFeatured}
                         onChange={(e) => setPostFeatured(e.target.checked)}
@@ -749,8 +789,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                       Featured Article Banner
                     </label>
 
-                    <label className="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
+                    <label htmlFor="admin-post-isdraft" className="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
                       <input
+                        id="admin-post-isdraft"
+                        name="isDraft"
                         type="checkbox"
                         checked={postIsDraft}
                         onChange={(e) => setPostIsDraft(e.target.checked)}
@@ -874,8 +916,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
 
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-xs font-semibold text-slate-300 mb-1">Topic or Keyword Prompt</label>
+                        <label htmlFor="admin-ai-prompt" className="block text-xs font-semibold text-slate-300 mb-1">Topic or Keyword Prompt</label>
                         <input
+                          id="admin-ai-prompt"
+                          name="aiPrompt"
                           type="text"
                           placeholder="e.g. How to use SEO schema markup for high affiliate click rates"
                           value={aiPrompt}
@@ -885,8 +929,9 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                       </div>
 
                       <div className="flex items-center gap-4">
-                        <label className="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
+                        <label htmlFor="admin-ai-type-outline" className="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
                           <input
+                            id="admin-ai-type-outline"
                             type="radio"
                             name="aitype"
                             checked={aiType === 'outline'}
@@ -896,8 +941,9 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                           Full Outline
                         </label>
 
-                        <label className="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
+                        <label htmlFor="admin-ai-type-title" className="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
                           <input
+                            id="admin-ai-type-title"
                             type="radio"
                             name="aitype"
                             checked={aiType === 'title'}
@@ -907,8 +953,9 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                           5 Catchy Headlines
                         </label>
 
-                        <label className="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
+                        <label htmlFor="admin-ai-type-excerpt" className="text-xs text-slate-300 flex items-center gap-1.5 cursor-pointer">
                           <input
+                            id="admin-ai-type-excerpt"
                             type="radio"
                             name="aitype"
                             checked={aiType === 'excerpt'}
@@ -946,7 +993,10 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                         <p className="text-xs text-emerald-400 font-semibold">{aiSuccessMsg}</p>
                       )}
 
+                      <label htmlFor="admin-ai-result" className="sr-only">Generated AI Output</label>
                       <textarea
+                        id="admin-ai-result"
+                        name="aiResult"
                         rows={8}
                         readOnly
                         value={aiResult}
@@ -1062,11 +1112,13 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
 
                     {/* Domain Input */}
                     <div className="pt-2">
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">Primary Domain Name</label>
+                      <label htmlFor="admin-custom-domain" className="block text-xs font-semibold text-slate-300 mb-1">Primary Domain Name</label>
                       <div className="flex gap-2">
                         <div className="relative flex-1">
                           <Globe className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
                           <input
+                            id="admin-custom-domain"
+                            name="customDomain"
                             type="text"
                             value={customDomain}
                             onChange={(e) => setCustomDomain(e.target.value)}

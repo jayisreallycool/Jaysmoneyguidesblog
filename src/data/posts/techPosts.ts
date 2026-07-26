@@ -12,7 +12,7 @@ export const TECH_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-24',
     readTimeMinutes: 8,
@@ -83,7 +83,7 @@ Kit (formerly ConvertKit) offers a free tier allowing you to manage up to 10,000
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-20',
     readTimeMinutes: 7,
@@ -136,7 +136,7 @@ Editing audio word-by-word in traditional timeline software is slow. Descript tr
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-14',
     readTimeMinutes: 6,
@@ -181,7 +181,7 @@ When my desk was covered in tangled cables, loose papers, and extra gadgets, my 
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fm=webp&fit=crop&w=200&q=80',
+      avatar: '/images/jays-mascot-logo.webp',
     },
     publishedAt: '2026-07-10',
     readTimeMinutes: 8,

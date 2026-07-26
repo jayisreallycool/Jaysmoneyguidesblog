@@ -314,12 +314,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {/* Register: Full Name */}
             {mode === 'register' && (
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                <label htmlFor="auth-name-input" className="block text-xs font-semibold text-slate-300 mb-1">
                   Full Name
                 </label>
                 <div className="relative">
                   <UserIcon className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input
+                    id="auth-name-input"
+                    name="name"
                     type="text"
                     required
                     placeholder="Jay Lopez"
@@ -333,12 +335,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
             {/* Email Field */}
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">
+              <label htmlFor="auth-email-input" className="block text-xs font-semibold text-slate-300 mb-1">
                 Email Address
               </label>
               <div className="relative">
                 <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
+                  id="auth-email-input"
+                  name="email"
                   type="email"
                   required
                   placeholder="you@example.com"
@@ -353,7 +357,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {mode !== 'forgot' && (
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="block text-xs font-semibold text-slate-300">
+                  <label htmlFor="auth-password-input" className="block text-xs font-semibold text-slate-300">
                     Password
                   </label>
                   {mode === 'login' && (
@@ -369,6 +373,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 <div className="relative">
                   <Lock className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input
+                    id="auth-password-input"
+                    name="password"
                     type={showPassword ? 'text' : 'password'}
                     required
                     placeholder="••••••••"
@@ -390,12 +396,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {/* Confirm Password field for Register */}
             {mode === 'register' && (
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                <label htmlFor="auth-confirm-password-input" className="block text-xs font-semibold text-slate-300 mb-1">
                   Confirm Password
                 </label>
                 <div className="relative">
                   <Lock className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                   <input
+                    id="auth-confirm-password-input"
+                    name="confirmPassword"
                     type={showPassword ? 'text' : 'password'}
                     required
                     placeholder="••••••••"
@@ -410,8 +418,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             {/* Checkboxes */}
             {mode === 'login' && (
               <div className="flex items-center justify-between pt-1">
-                <label className="flex items-center gap-2 cursor-pointer text-xs text-slate-400 hover:text-slate-300">
+                <label htmlFor="auth-remember-me" className="flex items-center gap-2 cursor-pointer text-xs text-slate-400 hover:text-slate-300">
                   <input
+                    id="auth-remember-me"
+                    name="rememberMe"
                     type="checkbox"
                     checked={rememberMe}
                     onChange={(e) => setRememberMe(e.target.checked)}
@@ -423,8 +433,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             )}
 
             {mode === 'register' && (
-              <label className="flex items-start gap-2 cursor-pointer text-xs text-slate-400 pt-1">
+              <label htmlFor="auth-agree-terms" className="flex items-start gap-2 cursor-pointer text-xs text-slate-400 pt-1">
                 <input
+                  id="auth-agree-terms"
+                  name="agreeTerms"
                   type="checkbox"
                   checked={agreeTerms}
                   onChange={(e) => setAgreeTerms(e.target.checked)}

@@ -36,10 +36,14 @@ export const AffiliateCalculator: React.FC = () => {
         <div className="space-y-5">
           <div>
             <div className="flex justify-between text-sm mb-1.5 font-medium">
-              <span className="text-slate-300 flex items-center gap-1.5"><Users className="w-4 h-4 text-emerald-400" /> Monthly Blog Traffic</span>
+              <label htmlFor="calc-monthly-visitors" className="text-slate-300 flex items-center gap-1.5 cursor-pointer">
+                <Users className="w-4 h-4 text-emerald-400" /> Monthly Blog Traffic
+              </label>
               <span className="text-emerald-400 font-bold">{monthlyVisitors.toLocaleString()} visitors</span>
             </div>
             <input
+              id="calc-monthly-visitors"
+              name="monthlyVisitors"
               type="range"
               min="1000"
               max="200000"
@@ -52,10 +56,14 @@ export const AffiliateCalculator: React.FC = () => {
 
           <div>
             <div className="flex justify-between text-sm mb-1.5 font-medium">
-              <span className="text-slate-300">Affiliate Link Click-Through Rate (CTR)</span>
+              <label htmlFor="calc-click-rate" className="text-slate-300 cursor-pointer">
+                Affiliate Link Click-Through Rate (CTR)
+              </label>
               <span className="text-emerald-400 font-bold">{clickRate}%</span>
             </div>
             <input
+              id="calc-click-rate"
+              name="clickRate"
               type="range"
               min="0.5"
               max="15"
@@ -68,10 +76,14 @@ export const AffiliateCalculator: React.FC = () => {
 
           <div>
             <div className="flex justify-between text-sm mb-1.5 font-medium">
-              <span className="text-slate-300">Offer Sales Conversion Rate</span>
+              <label htmlFor="calc-conversion-rate" className="text-slate-300 cursor-pointer">
+                Offer Sales Conversion Rate
+              </label>
               <span className="text-emerald-400 font-bold">{conversionRate}%</span>
             </div>
             <input
+              id="calc-conversion-rate"
+              name="conversionRate"
               type="range"
               min="0.5"
               max="10"
@@ -84,10 +96,14 @@ export const AffiliateCalculator: React.FC = () => {
 
           <div>
             <div className="flex justify-between text-sm mb-1.5 font-medium">
-              <span className="text-slate-300">Average Commission / Buyer</span>
+              <label htmlFor="calc-average-commission" className="text-slate-300 cursor-pointer">
+                Average Commission / Buyer
+              </label>
               <span className="text-emerald-400 font-bold">${averageCommission}/mo</span>
             </div>
             <input
+              id="calc-average-commission"
+              name="averageCommission"
               type="range"
               min="5"
               max="200"

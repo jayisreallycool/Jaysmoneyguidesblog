@@ -297,8 +297,11 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
           ) : (
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5">
               <div className="relative flex-1">
+                <label htmlFor="hero-email-input" className="sr-only">Email address</label>
                 <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
+                  id="hero-email-input"
+                  name="email"
                   type="email"
                   required
                   placeholder="Enter your email for Jay's weekly blueprint..."
