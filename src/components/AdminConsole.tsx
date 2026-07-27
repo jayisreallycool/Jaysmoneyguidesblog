@@ -6,7 +6,7 @@ import {
   Unlock, 
   X, 
   Plus, 
-  Edit, 
+  Pencil, 
   Trash2, 
   Sparkles, 
   BarChart2, 
@@ -886,7 +886,7 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                             className="p-2 rounded-xl bg-slate-700 text-slate-200 hover:text-white hover:bg-slate-600 transition-colors cursor-pointer"
                             title="Edit Article"
                           >
-                            <Edit className="w-4 h-4" />
+                            <Pencil className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => onDeletePost(p.id)}

@@ -140,6 +140,7 @@ export const MandatoryPagesModal: React.FC<MandatoryPagesModalProps> = ({
 
           <button
             onClick={onClose}
+            aria-label="Close modal"
             className="p-2 rounded-xl bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-700/60 transition-colors ml-2"
           >
             <X className="w-5 h-5" />

@@ -236,48 +236,60 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
 
           {/* Article Main Text */}
           <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-slate-300 prose-p:leading-relaxed prose-strong:text-emerald-300 prose-ul:text-slate-300 text-base space-y-4">
-            {post.content.split('\n\n').map((paragraph, index) => {
-              if (paragraph.startsWith('# ')) {
-                return <h2 key={index} className="text-2xl font-black text-white mt-8 mb-4 border-b border-slate-800 pb-2">{paragraph.replace('# ', '')}</h2>;
+            {post?.content && typeof post.content === 'string' ? post.content.split(/\r?\n\r?\n/).map((paragraph, index) => {
+              if (typeof paragraph !== 'string') return null;
+              const trimmedParagraph = paragraph.trim();
+              if (!trimmedParagraph) return null;
+              
+              // Handle headers
+              if (trimmedParagraph.startsWith('# ')) {
+                return <h2 key={index} className="text-2xl font-black text-white mt-8 mb-4 border-b border-slate-800 pb-2">{trimmedParagraph.replace('# ', '')}</h2>;
               }
-              if (paragraph.startsWith('## ')) {
-                return <h3 key={index} className="text-xl font-bold text-emerald-400 mt-6 mb-3">{paragraph.replace('## ', '')}</h3>;
+              if (trimmedParagraph.startsWith('## ')) {
+                return <h3 key={index} className="text-xl font-bold text-emerald-400 mt-6 mb-3">{trimmedParagraph.replace('## ', '')}</h3>;
               }
-              if (paragraph.startsWith('### ')) {
-                return <h4 key={index} className="text-lg font-bold text-white mt-4 mb-2">{paragraph.replace('### ', '')}</h4>;
+              if (trimmedParagraph.startsWith('### ')) {
+                return <h4 key={index} className="text-lg font-bold text-white mt-4 mb-2">{trimmedParagraph.replace('### ', '')}</h4>;
               }
-              const imgMatch = paragraph.match(/^!\[(.*?)\]\((.*?)\)/);
-              if (imgMatch) {
-                const altText = imgMatch[1];
-                const imgSrc = imgMatch[2];
-                return (
-                  <div key={index} className="my-6 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl bg-slate-950">
-                    <img
-                      src={imgSrc}
-                      alt={altText}
-                      className="w-full h-auto object-cover max-h-[500px]"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    {altText && (
-                      <p className="text-center text-xs text-slate-400 py-2 bg-slate-950/80 border-t border-slate-800 font-medium italic">
-                        {altText}
-                      </p>
-                    )}
-                  </div>
-                );
+
+              // Handle images
+              if (trimmedParagraph.startsWith('![')) {
+                const imgMatch = trimmedParagraph.match(/^!\[(.*?)\]\((.*?)\)/);
+                if (imgMatch) {
+                  const altText = imgMatch[1];
+                  const imgSrc = imgMatch[2];
+                  return (
+                    <div key={index} className="my-6 rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl bg-slate-950">
+                      <img
+                        src={imgSrc}
+                        alt={altText}
+                        className="w-full h-auto object-cover max-h-[500px]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {altText && (
+                        <p className="text-center text-xs text-slate-400 py-2 bg-slate-950/80 border-t border-slate-800 font-medium italic">
+                          {altText}
+                        </p>
+                      )}
+                    </div>
+                  );
+                }
               }
-              if (paragraph.startsWith('* ')) {
+              
+              // Handle lists
+              if (trimmedParagraph.startsWith('* ')) {
                 return (
                   <ul key={index} className="list-disc pl-5 space-y-1 text-slate-300 my-3">
-                    {paragraph.split('\n').map((li, lidx) => (
+                    {trimmedParagraph.split('\n').map((li, lidx) => (
                       <li key={lidx}>{li.replace('* ', '')}</li>
                     ))}
                   </ul>
                 );
               }
-              return <p key={index} className="text-slate-300 leading-relaxed">{paragraph}</p>;
-            })}
+
+              return <p key={index} className="text-slate-300 leading-relaxed">{trimmedParagraph}</p>;
+            }) : null}
           </div>
 
           {/* Recommended Affiliate Offer Card */}

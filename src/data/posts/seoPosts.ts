@@ -292,7 +292,7 @@ Think of sites like NomadList (*"Cost of Living in [City]"*) or Zapier (*"How to
     excerpt: 'Stand out in search results with eye-catching star ratings, FAQ accordions, and author badges using clean JSON-LD structured data.',
     category: 'SEO',
     tags: ['Schema Markup', 'JSON-LD', 'Rich Snippets', 'Technical SEO'],
-    coverImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -337,7 +337,7 @@ Those extra visual elements are called **Rich Snippets**, and they are created u
     excerpt: 'Fix slow loading times, layout shifts, and laggy mobile responsiveness without touching complex code or paying developers thousands.',
     category: 'SEO',
     tags: ['Page Speed', 'Core Web Vitals', 'Technical SEO', 'Performance'],
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -382,7 +382,7 @@ If your page jumps around while loading or takes 5 seconds to respond to a touch
     excerpt: 'Uncover hidden technical issues, broken links, thin content, and indexation bloat holding your website back from ranking.',
     category: 'SEO',
     tags: ['SEO Audit', 'Technical SEO', 'Optimization', 'Site Maintenance'],
-    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -473,7 +473,7 @@ Getting listed in those top 3 map spots delivers massive phone calls and leads w
     excerpt: 'Expand your blog traffic globally with proper hreflang tags, localized subdomains, and region-specific content targeting.',
     category: 'SEO',
     tags: ['International SEO', 'Hreflang', 'Global Growth', 'Technical SEO'],
-    coverImage: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',

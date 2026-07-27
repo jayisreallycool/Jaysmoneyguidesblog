@@ -79,7 +79,7 @@ Kit (formerly ConvertKit) offers a free tier allowing you to manage up to 10,000
     excerpt: 'How I use AI as an intelligent assistant for research, code debugging, audio editing, and email drafting without losing my human voice.',
     category: 'Tech',
     tags: ['AI Tools', 'Productivity', 'Automation', 'Workflow'],
-    coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -177,7 +177,7 @@ When my desk was covered in tangled cables, loose papers, and extra gadgets, my 
     excerpt: 'Automate repetitive business tasks using Make.com and Zapier without writing a single line of backend code.',
     category: 'Tech',
     tags: ['Automation', 'No-Code', 'Make', 'Zapier'],
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -222,7 +222,7 @@ No-code automation tools act as digital glue, passing information between apps b
     excerpt: 'Protect your domain names, social channels, and financial accounts from phishing, password leaks, and SIM swapping attacks.',
     category: 'Tech',
     tags: ['Security', 'Cybersecurity', 'Passkeys', 'Creator Protection'],
-    coverImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -269,7 +269,7 @@ Here is the non-negotiable security protocol I follow.
     excerpt: 'Take control of your data by running self-hosted analytics, file storage, and password managers on cheap cloud servers.',
     category: 'Tech',
     tags: ['Self-Hosting', 'VPS', 'Docker', 'Privacy'],
-    coverImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1484417894707-f6cd970d496a?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -314,7 +314,7 @@ When you use big SaaS platforms, your data lives on someone else's computer. The
     excerpt: 'GA4 is bloated and slow. Compare privacy-first analytics tools like Fathom, Plausible, and Umami for faster site speeds.',
     category: 'Tech',
     tags: ['Analytics', 'Privacy', 'Fathom', 'Plausible'],
-    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -361,7 +361,7 @@ Switching to **lightweight privacy analytics** was one of the best upgrades I ma
     excerpt: 'Train a custom AI assistant on your exact tone of voice, style guide, and audience personas for instant content ideas.',
     category: 'Tech',
     tags: ['Custom GPT', 'AI Assistant', 'Content Strategy', 'Tech Tools'],
-    coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',

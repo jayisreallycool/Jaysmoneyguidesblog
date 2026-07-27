@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   TrendingUp, 
   Search, 
@@ -71,6 +72,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <img 
                   src="/images/jays-mascot-logo.webp" 
                   alt="JaysMoneyGuides Mascot" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/jays-mascot-logo.jpg';
+                  }}
                   className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"
                 />
@@ -262,6 +266,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <img
                     src={currentUser.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(currentUser.name)}`}
                     alt={currentUser.name}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(currentUser.name)}`;
+                    }}
                     className="w-7 h-7 rounded-lg object-cover border border-emerald-400"
                   />
                   <span className="hidden sm:inline-block max-w-[100px] truncate">
@@ -339,135 +346,162 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Mobile Menu Drawer */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-800 bg-slate-900 px-4 pt-3 pb-6 space-y-4 max-h-[85vh] overflow-y-auto">
-          {/* Mobile Auth Button */}
-          {!currentUser ? (
-            <button
-              onClick={() => {
-                openModal('auth');
-                setIsMobileMenuOpen(false);
-              }}
-              className="w-full bg-slate-800 text-white font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-2 border border-slate-700"
-            >
-              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
-                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
-                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
-                </svg>
-              </div>
-              Sign In or Register (Google SSO)
-            </button>
-          ) : (
-            <div className="flex items-center justify-between bg-slate-800 p-3 rounded-xl">
-              <div className="flex items-center gap-2">
-                <img src={currentUser.avatar} alt={currentUser.name} className="w-8 h-8 rounded-lg" />
-                <div>
-                  <p className="text-xs font-bold text-white">{currentUser.name}</p>
-                  <p className="text-[10px] text-slate-400">{currentUser.email}</p>
-                </div>
-              </div>
-              <button
-                onClick={() => {
-                  openModal('profile');
-                  setIsMobileMenuOpen(false);
-                }}
-                className="text-xs bg-emerald-500 text-slate-950 font-bold px-3 py-1.5 rounded-lg"
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed inset-y-0 right-0 z-50 w-full max-w-xs border-l border-slate-800 bg-slate-950 shadow-2xl overflow-y-auto"
+          >
+            <div className="p-4 flex items-center justify-between border-b border-slate-800">
+              <span className="font-bold text-white">Menu</span>
+              <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800"
               >
-                Profile
+                <X className="w-6 h-6" />
               </button>
             </div>
-          )}
-          {/* Mobile Search */}
-          <div className="relative w-full">
-            <label htmlFor="mobile-search-input" className="sr-only">Search guides</label>
-            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
-            <input
-              id="mobile-search-input"
-              name="mobileSearchQuery"
-              type="text"
-              placeholder="Search guides..."
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500"
-            />
-          </div>
-
-          {/* Categories list */}
-          <div>
-            <p className="text-xs uppercase font-semibold text-slate-400 tracking-wider mb-2">Categories</p>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                onClick={() => {
-                  onSelectCategory('All');
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`px-3 py-2 rounded-lg text-sm text-left ${
-                  selectedCategory === 'All' ? 'bg-emerald-500/20 text-emerald-300 font-semibold' : 'bg-slate-800 text-slate-300'
-                }`}
-              >
-                All Posts
-              </button>
-              {categories.map((cat) => (
+            
+            <div className="p-4 space-y-6">
+              {/* Mobile Auth Button */}
+              {!currentUser ? (
                 <button
-                  key={cat}
                   onClick={() => {
-                    onSelectCategory(cat);
+                    openModal('auth');
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`px-3 py-2 rounded-lg text-sm text-left truncate ${
-                    selectedCategory === cat ? 'bg-emerald-500/20 text-emerald-300 font-semibold' : 'bg-slate-800 text-slate-300'
-                  }`}
+                  className="w-full bg-slate-800 text-white font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-2 border border-slate-700"
                 >
-                  {cat}
+                  <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shrink-0">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                    </svg>
+                  </div>
+                  Sign In or Register
                 </button>
-              ))}
-            </div>
-          </div>
+              ) : (
+                <div className="flex items-center justify-between bg-slate-800 p-3 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <img 
+                      src={currentUser.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(currentUser.name)}`} 
+                      alt={currentUser.name} 
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(currentUser.name)}`;
+                      }}
+                      className="w-8 h-8 rounded-lg object-cover" 
+                    />
+                    <div>
+                      <p className="text-xs font-bold text-white">{currentUser.name}</p>
+                      <p className="text-[10px] text-slate-400">{currentUser.email}</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      openModal('profile');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-xs bg-emerald-500 text-slate-950 font-bold px-3 py-1.5 rounded-lg"
+                  >
+                    Profile
+                  </button>
+                </div>
+              )}
+              {/* Mobile Search */}
+              <div className="relative w-full">
+                <label htmlFor="mobile-search-input" className="sr-only">Search guides</label>
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <input
+                  id="mobile-search-input"
+                  name="mobileSearchQuery"
+                  type="text"
+                  placeholder="Search guides..."
+                  value={searchQuery}
+                  onChange={(e) => onSearchChange(e.target.value)}
+                  className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500"
+                />
+              </div>
 
-          {/* Mandatory pages */}
-          <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                openModal('media-database');
-                setIsMobileMenuOpen(false);
-              }}
-              className="flex items-center gap-2 text-sm text-emerald-400 font-bold py-1.5"
-            >
-              <Database className="w-4 h-4 text-emerald-400" /> Firestore Image Database
-            </button>
-            <button
-              onClick={() => {
-                openModal('contact');
-                setIsMobileMenuOpen(false);
-              }}
-              className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
-            >
-              <Mail className="w-4 h-4 text-emerald-400" /> Contact Form
-            </button>
-            <button
-              onClick={() => {
-                openModal('privacy');
-                setIsMobileMenuOpen(false);
-              }}
-              className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
-            >
-              <Shield className="w-4 h-4 text-slate-400" /> Privacy Policy
-            </button>
-            <button
-              onClick={() => {
-                openModal('terms');
-                setIsMobileMenuOpen(false);
-              }}
-              className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
-            >
-              <FileText className="w-4 h-4 text-slate-400" /> Terms of Service
-            </button>
-          </div>
-        </div>
-      )}
+              {/* Categories list */}
+              <div>
+                <p className="text-xs uppercase font-semibold text-slate-400 tracking-wider mb-2">Categories</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => {
+                      onSelectCategory('All');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`px-3 py-2 rounded-lg text-sm text-left ${
+                      selectedCategory === 'All' ? 'bg-emerald-500/20 text-emerald-300 font-semibold' : 'bg-slate-800 text-slate-300'
+                    }`}
+                  >
+                    All Posts
+                  </button>
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => {
+                        onSelectCategory(cat);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`px-3 py-2 rounded-lg text-sm text-left truncate ${
+                        selectedCategory === cat ? 'bg-emerald-500/20 text-emerald-300 font-semibold' : 'bg-slate-800 text-slate-300'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mandatory pages */}
+              <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
+                <button
+                  onClick={() => {
+                    openModal('media-database');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-2 text-sm text-emerald-400 font-bold py-1.5"
+                >
+                  <Database className="w-4 h-4 text-emerald-400" /> Firestore Image Database
+                </button>
+                <button
+                  onClick={() => {
+                    openModal('contact');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
+                >
+                  <Mail className="w-4 h-4 text-emerald-400" /> Contact Form
+                </button>
+                <button
+                  onClick={() => {
+                    openModal('privacy');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
+                >
+                  <Shield className="w-4 h-4 text-slate-400" /> Privacy Policy
+                </button>
+                <button
+                  onClick={() => {
+                    openModal('terms');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
+                >
+                  <FileText className="w-4 h-4 text-slate-400" /> Terms of Service
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

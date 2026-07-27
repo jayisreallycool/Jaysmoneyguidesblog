@@ -198,6 +198,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         <div className="relative px-6 pt-6 pb-4 bg-gradient-to-b from-slate-800/60 to-transparent border-b border-slate-800/80">
           <button
             onClick={onClose}
+            aria-label="Close modal"
             className="absolute right-4 top-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />

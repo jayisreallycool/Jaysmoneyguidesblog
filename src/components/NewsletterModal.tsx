@@ -159,6 +159,13 @@ export const NewsletterModal: React.FC<NewsletterModalProps> = ({ onSubscribeSuc
                 <img 
                   src="/images/affiliate-marketing-guide-cover.webp" 
                   alt="Affiliate Marketing for Beginners Guide Cover" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/hero-bg.jpg';
+                  }}
+                  width="112"
+                  height="160"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-cover"
                   referrerPolicy="no-referrer"
                 />

@@ -8,7 +8,7 @@ export const ENTREPRENEURSHIP_POSTS: BlogPost[] = [
     excerpt: 'No fake lifestyle flexing, no rented Lamborghinis. Here is the realistic, month-by-month financial progression of building a lean digital media business.',
     category: 'Entrepreneurship',
     tags: ['Entrepreneurship', 'Scaling', 'Financial Roadmap', 'Business Strategy'],
-    coverImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -130,7 +130,7 @@ Every time a payout hits my business Stripe or PayPal account, it gets automatic
     excerpt: 'In the digital age, you don’t need permission from bosses, banks, or gatekeepers to build scalable assets that work for you 24/7.',
     category: 'Entrepreneurship',
     tags: ['Leverage', 'Wealth Building', 'Naval Mindset', 'Digital Assets'],
-    coverImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -230,7 +230,7 @@ People who pay $97 take the material seriously and execute.
     excerpt: 'Never spend 3 months building something nobody wants. Test real market demand and pre-orders before creating a single product page.',
     category: 'Entrepreneurship',
     tags: ['Validation', 'Lean Startup', 'Product Launch', 'Entrepreneurship'],
-    coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -277,7 +277,7 @@ If 10 people put their credit card down, you have proven market demand! Now you 
     excerpt: 'Ditch rigid 14-hour hustle culture. Here is my energy-managed daily calendar for high creative output and personal freedom.',
     category: 'Entrepreneurship',
     tags: ['Productivity', 'Daily Routine', 'Solopreneur', 'Work-Life Balance'],
-    coverImage: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -373,7 +373,7 @@ Instead, create **Standard Operating Procedures (SOPs)**:
     excerpt: 'When AI makes commodity text and images infinitely cheap, personal trust, authentic community, and original data become your ultimate moat.',
     category: 'Entrepreneurship',
     tags: ['AI Era', 'Business Moat', 'Future of Business', 'Strategy'],
-    coverImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -420,7 +420,7 @@ To survive and thrive, you must build a **Defensible Business Moat**.
     excerpt: 'Package your custom service work into a standardized, recurring monthly offering with fixed scope and predictable revenue.',
     category: 'Entrepreneurship',
     tags: ['Productized Service', 'Freelancing', 'Recurring Revenue', 'Business Model'],
-    coverImage: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
@@ -460,7 +460,7 @@ A **Productized Service** takes the skill you possess and sells it like a softwa
     excerpt: 'Turn your monthly cash flow into a major lump-sum liquidity event by preparing your website for acquisition on Empire Flippers or Motion Invest.',
     category: 'Entrepreneurship',
     tags: ['Business Exit', 'M&A', 'Niche Site Valuation', 'Entrepreneurship'],
-    coverImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fm=webp&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fm=webp&fit=crop&w=1200&q=80',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',

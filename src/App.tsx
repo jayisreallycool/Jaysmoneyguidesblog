@@ -6,6 +6,7 @@ import { HeroHeader } from './components/HeroHeader';
 import { CategoryTabs } from './components/CategoryTabs';
 import { PostCard } from './components/PostCard';
 import { Footer } from './components/Footer';
+import { Dashboard } from './components/Dashboard';
 import { seedInitialMediaAssets } from './lib/firebase';
 import { SEOHead } from './components/SEOHead';
 import { 
@@ -456,7 +457,7 @@ export default function App() {
   }, [posts, likedIds]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-slate-950">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-emerald-500 selection:text-slate-950 overflow-x-hidden">
       {/* Dynamic SEO Meta & Schema Manager */}
       <SEOHead
         post={activeModal === 'post-reader' ? selectedPost : null}
@@ -497,6 +498,8 @@ export default function App() {
       {/* Main Container */}
       <main id="main-content" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
+        <Dashboard posts={posts} />
+
         {/* Category Tabs Section */}
         <div className="space-y-4">
           <CategoryTabs

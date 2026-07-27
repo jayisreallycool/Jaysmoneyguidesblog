@@ -1,6 +1,7 @@
 import React from 'react';
 import { BlogPost } from '../types';
 import { Clock, Eye, Heart, Bookmark, ExternalLink, ArrowUpRight, CheckCircle2, Star } from 'lucide-react';
+import { SafeImage } from './SafeImage';
 
 interface PostCardProps {
   post: BlogPost;
@@ -11,7 +12,7 @@ interface PostCardProps {
   isLiked: boolean;
 }
 
-export const PostCard: React.FC<PostCardProps> = ({
+export const PostCard: React.FC<PostCardProps> = React.memo(({
   post,
   onOpenPost,
   isBookmarked,
@@ -46,12 +47,9 @@ export const PostCard: React.FC<PostCardProps> = ({
     >
       {/* Cover Image Header */}
       <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
-        <img
+        <SafeImage
           src={post.coverImage || '/images/affiliate-marketing-guide-cover.webp'}
           alt={post.title}
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = '/images/affiliate-marketing-guide-cover.webp';
-          }}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           decoding="async"
@@ -139,8 +137,8 @@ export const PostCard: React.FC<PostCardProps> = ({
         {/* Author & Footer Engagement Stats */}
         <div className="pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
           <div className="flex items-center gap-2">
-            <img
-              src={post.author.avatar}
+            <SafeImage
+              src={post.author.avatar || '/images/jays-mascot-logo.webp'}
               alt={post.author.name}
               className="w-7 h-7 rounded-full object-cover border border-emerald-500/30"
               loading="lazy"
@@ -178,4 +176,4 @@ export const PostCard: React.FC<PostCardProps> = ({
       </div>
     </article>
   );
-};
+});

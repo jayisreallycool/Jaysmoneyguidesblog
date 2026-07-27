@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { TrendingUp, Sparkles, CheckCircle2, ArrowRight, ShieldCheck, Mail, DollarSign, Zap } from 'lucide-react';
+import { SafeImage } from './SafeImage';
 
 interface HeroHeaderProps {
   onSubscribeSuccess: (email: string) => void;
@@ -21,9 +22,9 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
   });
 
   // Parallax transformations for background layers
-  const bannerY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
-  const bannerScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.2]);
-  const bannerOpacity = useTransform(scrollYProgress, [0, 0.8], [0.85, 0.3]);
+  const bannerY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const bannerScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  const bannerOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.6]);
 
   const ebookY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
   const ebookRotate = useTransform(scrollYProgress, [0, 1], [0, 8]);
@@ -68,74 +69,74 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
     >
       {/* Dynamic Parallax Background Layers */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* eBook Cover Artwork Layer with Parallax & Glow */}
-        <motion.div 
-          style={{ y: ebookY, rotate: ebookRotate, scale: ebookScale }}
-          className="absolute -right-12 md:right-4 lg:right-16 top-1/2 -translate-y-1/2 w-[520px] md:w-[720px] h-auto pointer-events-none z-0"
-        >
-          <img 
-            src="/images/affiliate-marketing-guide-cover.webp" 
-            alt="JaysMoneyGuides Affiliate Marketing Guide Artwork" 
-            className="w-full h-auto object-cover opacity-60 filter brightness-115 contrast-110 drop-shadow-[0_20px_50px_rgba(16,185,129,0.3)]"
-            referrerPolicy="no-referrer"
-            loading="eager"
-            decoding="async"
-            width="720"
-            height="1000"
-          />
-        </motion.div>
-
-        {/* Full-bleed Banner Base Layer with Parallax */}
+        {/* Full-bleed Hero Background Image Base Layer */}
         <motion.div 
           style={{ y: bannerY, scale: bannerScale, opacity: bannerOpacity }}
           className="absolute inset-0 w-full h-full pointer-events-none z-0"
         >
-          <img 
-            src="/images/jays-hero-banner.webp" 
-            alt="JaysMoneyGuides Hero Wallpaper" 
-            className="w-full h-full object-cover object-center filter brightness-110 contrast-105"
+          <SafeImage 
+            src="/hero-bg.jpg" 
+            alt="JaysMoneyGuides Hero Cover Background" 
+            className="w-full h-full object-cover object-top filter brightness-125 contrast-100 opacity-40 sm:opacity-50"
             referrerPolicy="no-referrer"
             loading="eager"
             decoding="async"
             width="1200"
-            height="675"
+            height="1800"
           />
         </motion.div>
+
+        {/* Subtle Tech Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#10b98115_1px,transparent_1px),linear-gradient(to_bottom,#10b98115_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black_100%)] z-[1]" />
       </div>
 
-      {/* Animated Light Sweeps & Glowing Ambient Orbs */}
+      {/* Contrast Darkening Overlay & Soft Ambient Glow Orbs */}
       <motion.div 
         style={{ y: glowY }}
         className="absolute inset-0 pointer-events-none z-0"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-slate-950/40 to-slate-950/95" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-500/20 via-slate-950/35 to-slate-950/90" />
+        {/* High contrast gradient vignette to ensure pristine text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-950/30 via-slate-950/75 to-slate-950" />
         
-        {/* Pulsing Light Orbs */}
+        {/* Soft Ambient Light Orbs */}
         <motion.div 
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.35, 0.6, 0.35],
+            opacity: [0.25, 0.45, 0.25],
           }}
           transition={{
-            duration: 6,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-emerald-500/25 rounded-full blur-[120px]"
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/25 rounded-full blur-[120px]"
         />
         <motion.div 
           animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.45, 0.2],
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
           }}
           transition={{
-            duration: 8,
+            duration: 16,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1
           }}
-          className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-teal-400/20 rounded-full blur-[140px]"
+          className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-teal-400/20 rounded-full blur-[130px]"
+        />
+        <motion.div 
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.45, 0.2],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+          className="absolute top-10 left-10 w-[400px] h-[400px] bg-amber-500/20 rounded-full blur-[120px]"
         />
 
         {/* Floating Decorative Sparkle Particles */}
@@ -169,7 +170,7 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="inline-flex items-center gap-2 bg-slate-900/90 border border-emerald-500/40 rounded-full px-4 py-1.5 text-xs text-slate-200 mb-6 shadow-xl shadow-emerald-950/60 backdrop-blur-md group hover:border-emerald-400 transition-colors"
         >
-          <img 
+          <SafeImage 
             src="/images/jays-mascot-logo.webp" 
             alt="Jay Mascot" 
             className="w-5 h-5 rounded-full border border-emerald-400 object-cover object-top shrink-0 group-hover:scale-110 transition-transform"
@@ -232,23 +233,41 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
             {/* Subtle card glow accent */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/25 transition-all" />
 
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-black uppercase tracking-wider shadow-sm">
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-                  Featured Blueprint
-                </span>
-                <span className="text-xs text-slate-400 font-medium">10 Min Read</span>
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <div className="w-20 sm:w-24 shrink-0 rounded-xl overflow-hidden border border-emerald-500/40 shadow-xl group-hover:scale-105 transition-transform duration-300 bg-slate-950">
+                <img 
+                  src="/images/affiliate-marketing-guide-cover.webp" 
+                  alt="Affiliate Marketing Master Guide Cover" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/hero-bg.jpg';
+                  }}
+                  className="w-full h-auto object-cover"
+                  referrerPolicy="no-referrer"
+                  loading="eager"
+                  decoding="async"
+                  width="96"
+                  height="138"
+                />
               </div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-white group-hover:text-emerald-300 transition-colors">
-                Affiliate Marketing For Beginners: Building Passive Income the Smart Way
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mt-2 line-clamp-2 leading-relaxed">
-                Jay Lopez’s step-by-step framework to launch, structure, and scale a high-ticket affiliate revenue engine with minimal upfront capital.
-              </p>
+
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-black uppercase tracking-wider shadow-sm">
+                    <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                    Featured Blueprint
+                  </span>
+                  <span className="text-xs text-slate-400 font-medium">10 Min Read</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-white group-hover:text-emerald-300 transition-colors leading-tight">
+                  Affiliate Marketing For Beginners: Building Passive Income the Smart Way
+                </h3>
+                <p className="text-xs text-slate-300 mt-1.5 line-clamp-2 leading-relaxed">
+                  Jay Lopez’s step-by-step framework to launch, structure, and scale a high-ticket affiliate revenue engine.
+                </p>
+              </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
+            <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
               <div className="flex items-center gap-2 text-slate-400">
                 <TrendingUp className="w-4 h-4 text-emerald-400" />
                 <span>Over 8,900+ Entrepreneurs Guided</span>
@@ -266,8 +285,11 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
           >
             <div className="w-24 sm:w-28 shrink-0 rounded-xl overflow-hidden shadow-2xl border border-emerald-500/40 group-hover:scale-105 transition-transform duration-300 bg-slate-950">
               <img 
-                src="/images/affiliate-marketing-guide-cover.webp" 
-                alt="Affiliate Marketing for Beginners eBook Cover" 
+                src="/images/affiliate-viable-solution-infographic.webp" 
+                alt="Affiliate Marketing Viable Solution Infographic" 
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/affiliate-viable-solution-infographic.webp';
+                }}
                 className="w-full h-auto object-cover"
                 referrerPolicy="no-referrer"
               />
