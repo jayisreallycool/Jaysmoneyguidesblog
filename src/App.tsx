@@ -7,7 +7,6 @@ import { CategoryTabs } from './components/CategoryTabs';
 import { PostCard } from './components/PostCard';
 import { Footer } from './components/Footer';
 import { Dashboard } from './components/Dashboard';
-import { seedInitialMediaAssets } from './lib/firebase';
 import { SEOHead } from './components/SEOHead';
 import { 
   Search, 
@@ -61,9 +60,15 @@ export default function App() {
     localStorage.setItem('jmg_posts', JSON.stringify(posts));
   }, [posts]);
 
-  // Seed Firebase Media Assets on startup
+  // Seed Firebase Media Assets on startup - dynamically imported so the
+  // firebase SDK (~660kb) never blocks first paint / initial bundle.
   useEffect(() => {
-    seedInitialMediaAssets().catch(() => {});
+    const idle = (window as any).requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1500));
+    idle(() => {
+      import('./lib/firebase').then(({ seedInitialMediaAssets }) => {
+        seedInitialMediaAssets().catch(() => {});
+      }).catch(() => {});
+    });
   }, []);
 
   // Bookmarks
@@ -296,7 +301,68 @@ export default function App() {
     setPosts(prev => prev.map(p => p.id === post.id ? { ...p, views: p.views + 1 } : p));
     setSelectedPost(post);
     setActiveModal('post-reader');
+    const path = `/guide/${post.slug}`;
+    if (window.location.pathname !== path) {
+      window.history.pushState({ postSlug: post.slug }, '', path);
+    }
   };
+
+  // Close Reader - restore the base URL
+  const handleClosePost = () => {
+    setActiveModal('none');
+    if (window.location.pathname.startsWith('/guide/')) {
+      window.history.pushState({}, '', '/');
+    }
+  };
+
+  // Paths with real, crawlable URLs (posts are handled separately above)
+  const MODAL_PATHS: Partial<Record<ModalView, string>> = {
+    privacy: '/privacy',
+    terms: '/terms',
+    contact: '/contact',
+  };
+
+  const handleOpenModal = (view: ModalView) => {
+    setActiveModal(view);
+    const path = MODAL_PATHS[view];
+    if (path && window.location.pathname !== path) {
+      window.history.pushState({ modal: view }, '', path);
+    } else if (view === 'none' && window.location.pathname !== '/' && !window.location.pathname.startsWith('/guide/')) {
+      window.history.pushState({}, '', '/');
+    }
+  };
+
+  // Deep-link support: opening https://jaysmoneyguides.com/guide/<slug>
+  // directly (or hitting Back/Forward) should show the matching post.
+  useEffect(() => {
+    const resolveFromPath = () => {
+      const path = window.location.pathname;
+      const postMatch = path.match(/^\/guide\/([^/]+)\/?$/);
+      if (postMatch) {
+        const post = posts.find(p => p.slug === postMatch[1] && !p.isDraft);
+        if (post) {
+          setSelectedPost(post);
+          setActiveModal('post-reader');
+          return;
+        }
+      }
+
+      const modalEntry = (Object.entries(MODAL_PATHS) as [ModalView, string][])
+        .find(([, p]) => p === path.replace(/\/$/, '') || p === path);
+      if (modalEntry) {
+        setSelectedPost(null);
+        setActiveModal(modalEntry[0]);
+        return;
+      }
+
+      setSelectedPost(null);
+      setActiveModal(prev => (prev === 'post-reader' ? 'none' : prev));
+    };
+
+    resolveFromPath();
+    window.addEventListener('popstate', resolveFromPath);
+    return () => window.removeEventListener('popstate', resolveFromPath);
+  }, [posts]);
 
   // Add Comment
   const handleAddComment = (postId: string, authorName: string, content: string) => {
@@ -474,7 +540,7 @@ export default function App() {
         }}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
-        openModal={(view) => setActiveModal(view)}
+        openModal={handleOpenModal}
         bookmarkedCount={bookmarkedIds.length}
         onToggleBookmarksOnly={() => setShowBookmarksOnly(!showBookmarksOnly)}
         showBookmarksOnly={showBookmarksOnly}
@@ -727,7 +793,7 @@ export default function App() {
         {activeModal === 'post-reader' && selectedPost && (
           <PostReaderModal
             post={selectedPost}
-            onClose={() => setActiveModal('none')}
+            onClose={handleClosePost}
             isBookmarked={bookmarkedIds.includes(selectedPost.id)}
             onToggleBookmark={handleToggleBookmark}
             isLiked={likedIds.includes(selectedPost.id)}
@@ -741,8 +807,8 @@ export default function App() {
         {/* Mandatory Pages Modal (Privacy, Terms, Contact) */}
         <MandatoryPagesModal
           view={activeModal}
-          onClose={() => setActiveModal('none')}
-          onSelectTab={(tab) => setActiveModal(tab)}
+          onClose={() => handleOpenModal('none')}
+          onSelectTab={(tab) => handleOpenModal(tab)}
           onNewContactMessage={handleNewContactMessage}
         />
 
@@ -750,6 +816,7 @@ export default function App() {
         <AdminConsole
           isOpen={activeModal === 'admin'}
           onClose={() => setActiveModal('none')}
+          currentUser={currentUser}
           posts={posts}
           onSavePost={handleSavePost}
           onDeletePost={handleDeletePost}
@@ -788,10 +855,7 @@ export default function App() {
           onLogout={handleLogout}
           bookmarkedPosts={bookmarkedPostsList}
           likedPosts={likedPostsList}
-          onOpenReader={(post) => {
-            setSelectedPost(post);
-            setActiveModal('post-reader');
-          }}
+          onOpenReader={(post) => handleOpenPost(post)}
         />
 
         {/* Non-Intrusive Exit-Intent / 30s Activity Newsletter Capture Modal */}
@@ -807,7 +871,7 @@ export default function App() {
           setSelectedCategory(cat);
           setShowBookmarksOnly(false);
         }}
-        openModal={(view) => setActiveModal(view)}
+        openModal={handleOpenModal}
         onSubscribeSuccess={handleSubscribeSuccess}
       />
 

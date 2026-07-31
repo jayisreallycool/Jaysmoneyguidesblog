@@ -92,6 +92,7 @@ export const CookieConsent: React.FC<CookieConsentProps> = ({ onOpenPrivacy }) =
 
             <button
               onClick={handleRejectNonEssential}
+              aria-label="Close & accept essential cookies only"
               className="text-slate-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer shrink-0"
               title="Close & Accept Essential Only"
             >

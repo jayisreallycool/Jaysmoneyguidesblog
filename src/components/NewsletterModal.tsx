@@ -160,7 +160,7 @@ export const NewsletterModal: React.FC<NewsletterModalProps> = ({ onSubscribeSuc
                   src="/images/affiliate-marketing-guide-cover.webp" 
                   alt="Affiliate Marketing for Beginners Guide Cover" 
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/hero-bg.jpg';
+                    (e.target as HTMLImageElement).src = '/images/jaysmoneyguides-hero-banner.webp';
                   }}
                   width="112"
                   height="160"

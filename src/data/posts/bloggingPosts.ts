@@ -8,11 +8,11 @@ export const BLOGGING_POSTS: BlogPost[] = [
     excerpt: 'Stop chasing outdated blogging advice. Follow this definitive 2026 blueprint to launch, write, and monetize a high-authority blog from scratch.',
     category: 'Blogging',
     tags: ['Blogging', 'Start a Blog', 'Monetization', 'Content Strategy', '2026 Blogging'],
-    coverImage: '/assets/images/blogging_guide_featured_1785101328974.jpg',
+    coverImage: '/images/profitable-blogging-guide-featured.webp',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-26',
     readTimeMinutes: 25,
@@ -46,7 +46,7 @@ Welcome to the definitive 2026 guide for launching a profitable blog. If you’v
 
 In this guide, we are going to tear down the outdated advice and build a roadmap for a scalable, high-authority content business.
 
-![Starting a Profitable Blog in 2026 Featured Image](/assets/images/blogging_guide_featured_1785101328974.jpg)
+![Starting a Profitable Blog in 2026 Featured Image](/images/profitable-blogging-guide-featured.webp)
 
 ---
 
@@ -71,7 +71,7 @@ In the past, you could stuff keywords into a 500-word post and rank. That era is
 
 Picking the right niche is the most critical decision you'll make. It’s not just about what you love; it’s about what the market is willing to pay for.
 
-![Profitable Blogging Niche Infographic](/assets/images/blogging_niche_infographic_1785101340322.jpg)
+![Profitable Blogging Niche Infographic](/images/profitable-blogging-niches-infographic.webp)
 
 ### The Venn Diagram of Profit
 * **Audience Problem**: Is there a group of people searching for a specific solution?
@@ -140,11 +140,11 @@ The best time to start was yesterday. The second best time is today. Don't look 
     excerpt: 'Steal my personal content outlining and drafting framework to write engaging, deeply researched articles in half the time without generic AI fluff.',
     category: 'Blogging',
     tags: ['Content Writing', 'Productivity', 'Blogging System', 'Copywriting', 'Writing Framework'],
-    coverImage: '/assets/images/writing_framework_featured_1785101407775.jpg',
+    coverImage: '/images/content-writing-framework-featured.webp',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-26',
     readTimeMinutes: 20,
@@ -169,7 +169,7 @@ Writer's block usually happens because you are trying to **research, structure, 
 
 When you split writing into distinct, focused steps, the process becomes fast and enjoyable.
 
-![Fast Writing Featured Image](/assets/images/writing_framework_featured_1785101407775.jpg)
+![Fast Writing Featured Image](/images/content-writing-framework-featured.webp)
 
 ---
 
@@ -188,7 +188,7 @@ Turn off your grammar checkers. Turn off Slack notifications. Just write as if y
 
 Don't stop to fix typos or tweak word choices. **Get the thoughts onto the page.**
 
-![Writing Workflow Infographic](/assets/images/writing_workflow_infographic_1785101422232.jpg)
+![Writing Workflow Infographic](/images/content-writing-workflow-infographic.webp)
 
 ### Phase 3: Formatting & Visual Elements (30 Mins)
 Now go back and polish:
@@ -211,7 +211,7 @@ Read your draft out loud. If you trip over a phrase, rewrite it! That is how you
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-16',
     readTimeMinutes: 8,
@@ -239,6 +239,8 @@ A **paid newsletter** puts you in direct, un-interrupted communication with your
 ---
 
 ## The Math Behind $1,000/Month
+
+![How to Build a $1,000/Month Paid Newsletter with Substack or Kit - JaysMoneyGuides visual guide](/images/profitable-blogging-guide-featured.webp)
 
 You don't need 100,000 casual readers to build a full-time business.
 * **200 paid members @ $5/month = $1,000/month**
@@ -268,7 +270,7 @@ Keep your free newsletter focused on high-level strategy. Put your **deep execut
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-12',
     readTimeMinutes: 6,
@@ -293,6 +295,8 @@ You can write the most brilliant 3,000-word article in the world, but if your te
 
 Great blog UX (User Experience) removes friction between the reader and your words.
 
+![Blog Layout UX: 7 Design Rules That Keep Readers on Your Page Longer - JaysMoneyGuides visual guide](/images/profitable-blogging-niches-infographic.webp)
+
 ---
 
 ## My Top 4 Anti-Friction Design Rules
@@ -314,7 +318,7 @@ Great blog UX (User Experience) removes friction between the reader and your wor
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-07',
     readTimeMinutes: 7,
@@ -341,6 +345,8 @@ Smart creators work off the **Hub-and-Spoke model**:
 * **The Hub**: A deeply researched, long-form blog post published once a week.
 * **The Spokes**: 10 bite-sized content pieces distributed across social networks over the next 14 days.
 
+![How to Repurpose 1 Blog Post into 10 Social Media Content Assets - JaysMoneyGuides visual guide](/images/content-writing-framework-featured.webp)
+
 ---
 
 ## The Repurposing Workflow
@@ -363,7 +369,7 @@ Smart creators work off the **Hub-and-Spoke model**:
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-03',
     readTimeMinutes: 8,
@@ -387,6 +393,8 @@ Smart creators work off the **Hub-and-Spoke model**:
 Not all pageviews are created equal. Depending on which monetization model you choose, 50,000 monthly visitors could earn you $500... or $15,000.
 
 Here is the real financial comparison based on RPM (Revenue Per 1,000 Visitors).
+
+![Display Ads vs Affiliate Marketing vs Digital Products: Which Pays Best? - JaysMoneyGuides visual guide](/images/content-writing-workflow-infographic.webp)
 
 ---
 
@@ -417,7 +425,7 @@ Here is the real financial comparison based on RPM (Revenue Per 1,000 Visitors).
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-28',
     readTimeMinutes: 7,
@@ -442,6 +450,8 @@ The main reason bloggers quit after 3 months is **decision fatigue**. Every week
 
 When you build an annual content plan upfront, you wake up every Monday knowing exactly what article needs to be researched and drafted.
 
+![How to Conduct Keyword-Driven Content Planning for an Entire Year - JaysMoneyGuides visual guide](/images/profitable-blogging-guide-featured.webp)
+
 ---
 
 ## The 4-Pillar Content Matrix
@@ -464,7 +474,7 @@ Organize your 52 yearly posts into 4 categories (13 posts each):
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-24',
     readTimeMinutes: 6,
@@ -491,6 +501,8 @@ When I published my first blog post in 2021, I sat hovering over the publish but
 
 Here is the mental shift that freed me completely: **Stop trying to pose as an all-knowing guru. Instead, become a passionate librarian documenting your experiments.**
 
+![Overcoming Imposter Syndrome as a New Blogger & Online Creator - JaysMoneyGuides visual guide](/images/profitable-blogging-niches-infographic.webp)
+
 ---
 
 ## Position Yourself as a Guide, Not a Guru
@@ -511,7 +523,7 @@ You aren't claiming to have a PhD in marketing. You are simply sharing honest da
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-19',
     readTimeMinutes: 7,
@@ -536,6 +548,8 @@ You aren't claiming to have a PhD in marketing. You are simply sharing honest da
 
 If you want editors of major blogs to say YES to your pitch, you must demonstrate **value and professionalism upfront**.
 
+![How to Guest Post for High-DA Backlinks and Targeted Referral Traffic - JaysMoneyGuides visual guide](/images/content-writing-framework-featured.webp)
+
 ---
 
 ## The Pitch Formula Editors Love
@@ -557,7 +571,7 @@ If you want editors of major blogs to say YES to your pitch, you must demonstrat
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-14',
     readTimeMinutes: 6,
@@ -581,6 +595,8 @@ If you want editors of major blogs to say YES to your pitch, you must demonstrat
 Great visuals give your blog an instant feel of authority and polish.
 
 You don't need expensive Photoshop subscriptions or custom photographers. With free tools like Canva, Unsplash, and WebP converters, you can build stunning brand assets in minutes.
+
+![Blog Photography & Graphics: How to Create Custom Assets on a $0 Budget - JaysMoneyGuides visual guide](/images/profitable-blogging-guide-featured.webp)
 
 ---
 

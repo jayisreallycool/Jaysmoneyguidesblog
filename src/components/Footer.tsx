@@ -63,14 +63,16 @@ export const Footer: React.FC<FooterProps> = ({
           </span>
           <p className="text-sm">Actionable blueprints for digital founders.</p>
           <form onSubmit={handleSubscribe} className="flex gap-2">
+            <label htmlFor="footer-newsletter-email" className="sr-only">Email address</label>
             <input
+              id="footer-newsletter-email"
               type="email"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:border-emerald-500 focus:outline-none"
             />
-            <button type="submit" className="bg-emerald-500 text-slate-950 p-2 rounded-lg hover:bg-emerald-400">
+            <button type="submit" aria-label="Subscribe to newsletter" className="bg-emerald-500 text-slate-950 p-2 rounded-lg hover:bg-emerald-400">
               <Send className="w-4 h-4" />
             </button>
           </form>
@@ -81,9 +83,9 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <h4 className="text-white font-bold text-sm">Company</h4>
-            <button onClick={() => openModal('contact')} className="block text-sm hover:text-emerald-400">Contact</button>
-            <button onClick={() => openModal('privacy')} className="block text-sm hover:text-emerald-400">Privacy</button>
-            <button onClick={() => openModal('terms')} className="block text-sm hover:text-emerald-400">Terms</button>
+            <a href="/contact" onClick={(e) => { e.preventDefault(); openModal('contact'); }} className="block text-sm hover:text-emerald-400">Contact</a>
+            <a href="/privacy" onClick={(e) => { e.preventDefault(); openModal('privacy'); }} className="block text-sm hover:text-emerald-400">Privacy</a>
+            <a href="/terms" onClick={(e) => { e.preventDefault(); openModal('terms'); }} className="block text-sm hover:text-emerald-400">Terms</a>
           </div>
           <div className="space-y-2">
             <h4 className="text-white font-bold text-sm">Resources</h4>

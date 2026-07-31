@@ -8,11 +8,11 @@ export const AFFILIATE_POSTS: BlogPost[] = [
     excerpt: 'The comprehensive 2026 Jay Lopez blueprint. Learn how to launch, structure, and scale a high-ticket affiliate business from scratch with minimal upfront capital.',
     category: 'Affiliate Marketing',
     tags: ['Affiliate Marketing', 'Beginner Guide', 'Passive Income', 'Jay Lopez', 'Blueprints', 'SEO', 'Content Strategy'],
-    coverImage: '/assets/images/affiliate_marketing_mastery_featured_1785101082206.jpg',
+    coverImage: '/images/affiliate-marketing-mastery-featured.webp',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-26',
     readTimeMinutes: 20,
@@ -44,7 +44,7 @@ export const AFFILIATE_POSTS: BlogPost[] = [
 
 Welcome to the definitive JaysMoneyGuides blueprint. If you are looking for an honest, actionable, and hype-free path to building a genuine online business, you are in the right place. In this guide, we will transform your understanding of affiliate marketing from a "side hustle" into a scalable, high-margin asset.
 
-![Affiliate Marketing Mastery Featured Image](/assets/images/affiliate_marketing_mastery_featured_1785101082206.jpg)
+![Affiliate Marketing Mastery Featured Image](/images/affiliate-marketing-mastery-featured.webp)
 
 ---
 
@@ -63,7 +63,7 @@ Many beginners fall into the trap of viewing affiliate marketing as "selling." I
 * **Location Freedom**: Work from home, a coffee shop, or while traveling—your business lives on the internet.
 * **Compound Passive Growth**: An article written today can continue bringing qualified leads and commissions for years.
 
-![Affiliate Marketing Blueprint Infographic](/assets/images/affiliate_marketing_blueprint_infographic_1785101259916.jpg)
+![Affiliate Marketing Blueprint Infographic](/images/affiliate-marketing-blueprint-infographic.webp)
 
 ---
 
@@ -108,11 +108,11 @@ Be transparent, honest, and disclose your affiliate relationships clearly before
     excerpt: 'Detailed visual infographic breakdown of why affiliate marketing remains one of the lowest-risk, highest-margin online business models today.',
     category: 'Affiliate Marketing',
     tags: ['Affiliate Marketing', 'Infographic', 'Business Strategy', 'Passive Income'],
-    coverImage: '/images/affiliate-viable-solution-infographic.webp',
+    coverImage: '/images/affiliate-marketing-viable-business-infographic.webp',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-24',
     readTimeMinutes: 6,
@@ -135,7 +135,7 @@ Be transparent, honest, and disclose your affiliate relationships clearly before
 
 Despite critics claiming the market is crowded, affiliate marketing continues to record double-digit annual industry growth worldwide.
 
-![Affiliate Marketing Viable Solution Infographic](/images/affiliate-viable-solution-infographic.webp)
+![Affiliate Marketing Viable Solution Infographic](/images/affiliate-marketing-viable-business-infographic.webp)
 
 ---
 
@@ -161,11 +161,11 @@ Whether you prefer working from home, a co-working space, or while traveling abr
     excerpt: 'Visual guide revealing the exploding $17B+ affiliate market, booming e-commerce trends, and how solopreneurs are capitalizing on SaaS & digital products.',
     category: 'Affiliate Marketing',
     tags: ['Affiliate Marketing', 'Industry Trends', 'E-Commerce', 'SaaS Growth'],
-    coverImage: '/images/affiliate-opportunity-2025-infographic.webp',
+    coverImage: '/images/affiliate-marketing-2025-opportunity-infographic.webp',
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-23',
     readTimeMinutes: 7,
@@ -188,7 +188,7 @@ Whether you prefer working from home, a co-working space, or while traveling abr
 
 As online shopping and SaaS usage reach record highs, affiliate marketing has evolved into a multi-billion dollar cornerstone of digital commerce.
 
-![Affiliate Marketing Big Opportunity Infographic](/images/affiliate-opportunity-2025-infographic.webp)
+![Affiliate Marketing Big Opportunity Infographic](/images/affiliate-marketing-2025-opportunity-infographic.webp)
 
 ---
 
@@ -258,6 +258,8 @@ Here is what the math actually looks like:
 * **100 signups** for the same tool = **$2,970/month** every single month on autopilot.
 
 Notice how you don't need millions of pageviews? You just need the *right* 100 people looking to solve a real business headache.
+
+![How I Built a $5,200/Mo SaaS Affiliate Site (Without Buying Ads) - JaysMoneyGuides visual guide](/images/affiliate-marketing-guide-cover.webp)
 
 ---
 
@@ -332,6 +334,8 @@ Amazon is the undisputed king of trust. When a visitor clicks your link and land
 * They trust 2-day Prime shipping.
 * **You get paid for EVERYTHING in their cart**, not just the product you linked to!
 
+![The Truth About Amazon Associates in 2026: Is It Worth Your Time? - JaysMoneyGuides visual guide](/images/affiliate-marketing-2025-opportunity-infographic.webp)
+
 Last December, a reader clicked my link to check out a $20 desk lamp. They ended up buying an $800 espresso machine and $150 worth of holiday gifts. I earned $38 on an article about lamps!
 
 ---
@@ -399,6 +403,8 @@ Look for brands that meet these criteria:
 * They sell a product priced between $100 and $1,000.
 * Their website uses Shopify, Woocommerce, or custom tech.
 * They are actively running ads on Facebook/Google (this proves they have margin to spend on customer acquisition).
+
+![How to Find High-Paying Direct Brand Affiliate Deals (15%+ Commission) - JaysMoneyGuides visual guide](/images/affiliate-marketing-viable-business-infographic.webp)
 
 ---
 
@@ -471,6 +477,8 @@ Plus, the FTC (Federal Trade Commission) enforces strict guidelines. Here is how
 
 ## The Core Rule: "Clear and Conspicuous"
 
+![Affiliate Marketing Disclosure & FTC Rules: How to Stay 100% Legal - JaysMoneyGuides visual guide](/images/affiliate-marketing-mastery-featured.webp)
+
 The FTC requires that your disclosure is:
 1. **Above the fold**: Placed before the reader clicks any affiliate link.
 2. **Easy to read**: Clear font contrast, not buried in tiny footer text.
@@ -533,6 +541,8 @@ When I started, I signed up for 40 different affiliate programs. I put banner ad
 
 **The fix**: Pick ONE tight niche and master 3 to 5 core tools that solve real problems.
 
+![5 Affiliate Marketing Mistakes That Cost Me Over $10,000 in My First Year - JaysMoneyGuides visual guide](/images/affiliate-marketing-blueprint-infographic.webp)
+
 ---
 
 ## Mistake #2: Not Capturing Email Leads
@@ -589,6 +599,8 @@ Most visitors leave your site and never return. But when you invite them into an
 Here is the exact 5-day sequence I use across my niche sites.
 
 ---
+
+![How to Build an Email Funnel That Makes Automated Affiliate Sales - JaysMoneyGuides visual guide](/images/affiliate-marketing-guide-cover.webp)
 
 ## Day 1: The Instant Value + Personal Intro
 * **Goal**: Deliver the free PDF or template they asked for.
@@ -649,6 +661,8 @@ With **affiliate marketing**, a video with just 400 targeted views can generate 
 
 Why? Because someone searching YouTube for *"How to set up email automation in Kit"* is in active execution mode. They want to follow along step-by-step.
 
+![YouTube Affiliate Marketing: How I Turn 500-View Videos into $1k/Mo - JaysMoneyGuides visual guide](/images/affiliate-marketing-2025-opportunity-infographic.webp)
+
 ---
 
 ## The Perfect 8-Minute Tutorial Structure
@@ -701,6 +715,8 @@ Over the past 3 years, I managed two distinct properties:
 Here is what the data showed.
 
 ---
+
+![High-Ticket vs Low-Ticket Affiliate Marketing: My 3-Year Comparison - JaysMoneyGuides visual guide](/images/affiliate-marketing-viable-business-infographic.webp)
 
 ## Comparison Metrics
 
@@ -758,6 +774,8 @@ The secret to high affiliate conversions is **consultative helping**. Position y
 
 ---
 
+![How to Write Buyer’s Guides That Convert at 10%+ (No Hype or Hard Selling) - JaysMoneyGuides visual guide](/images/affiliate-marketing-mastery-featured.webp)
+
 ## The Essential Elements of a High-Converting Buyer’s Guide
 
 ### 1. The Above-the-Fold Recommendation Box
@@ -811,6 +829,8 @@ Instead of boring "Click Here" links, use descriptive action buttons:
 While Google SEO takes 6 to 12 months to index new sites, **Pinterest can send targeted traffic in a matter of days**.
 
 Many marketers dismiss Pinterest as just crafts and recipes. But millions of users search Pinterest daily for home office setups, productivity tools, financial planners, and tech recommendations.
+
+![Pinterest Affiliate Marketing: The Untold Traffic Method for Niche Blogs - JaysMoneyGuides visual guide](/images/affiliate-marketing-guide-cover.webp)
 
 ---
 

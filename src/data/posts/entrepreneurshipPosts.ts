@@ -12,7 +12,7 @@ export const ENTREPRENEURSHIP_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-25',
     readTimeMinutes: 10,
@@ -48,6 +48,8 @@ Building a sustainable, high-margin online business takes focused, consistent ef
 Here is the realistic month-by-month roadmap.
 
 ---
+
+![From $0 to $10,000/Month: The Honest 12-Month Blueprint for Online Creators - Entrepreneurship guide by JaysMoneyGuides](/images/from-0-to-10-000-month-the-honest-12-month-blueprint-for-onl-entrepreneurship-guide.webp)
 
 ## Phase 1: Months 1 to 3 (The Quiet Foundation)
 * **Revenue Expectation**: $0 to $100/month.
@@ -85,7 +87,7 @@ Here is the realistic month-by-month roadmap.
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-21',
     readTimeMinutes: 7,
@@ -109,6 +111,8 @@ Here is the realistic month-by-month roadmap.
 One of the scariest moments in a new entrepreneur's life is their first tax season after a profitable year.
 
 They look at their bank account and see $60,000. They feel rich! Then their accountant hands them a $18,000 tax bill, and they realize they spent most of that money on personal expenses.
+
+![How to Manage Cash Flow as a Solo Founder: The 50/30/20 Business Rule - Entrepreneurship guide by JaysMoneyGuides](/images/how-to-manage-cash-flow-as-a-solo-founder-the-50-30-20-busin-entrepreneurship-guide.webp)
 
 Here is the **Profit-First Allocation Method** I use to manage cash flow effortlessly.
 
@@ -134,7 +138,7 @@ Every time a payout hits my business Stripe or PayPal account, it gets automatic
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-17',
     readTimeMinutes: 8,
@@ -163,6 +167,8 @@ There are four main types of leverage in business:
 3. **Code**: Software applications, algorithms, web apps.
 4. **Media / Content**: Blogs, videos, newsletters, podcasts.
 
+![Permissionless Leverage: Why Content and Code Are the Ultimate Wealth Engines - Entrepreneurship guide by JaysMoneyGuides](/images/permissionless-leverage-why-content-and-code-are-the-ultimat-entrepreneurship-guide.webp)
+
 ---
 
 ## Why Code and Content Win
@@ -183,7 +189,7 @@ Once created, digital content costs **$0 to replicate**. An article you wrote on
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-13',
     readTimeMinutes: 7,
@@ -209,6 +215,8 @@ When creators launch their first ebook or digital template pack, they often defa
 They think: *"If it's cheap, thousands of people will buy it!"*
 
 In reality, **cheap prices trigger psychological suspicion**. Buyers assume a $9 guide must be shallow or generic.
+
+![Pricing Strategy for Digital Products: Why $97 Out-Sells $19 Every Time - Entrepreneurship guide by JaysMoneyGuides](/images/pricing-strategy-for-digital-products-why-97-out-sells-19-ev-entrepreneurship-guide.webp)
 
 ---
 
@@ -259,6 +267,8 @@ The saddest mistake an online creator can make is spending 3 months locked in a 
 
 The golden rule of entrepreneurship is **Validation Before Creation**.
 
+![How to Validate a Digital Business Idea in 48 Hours for Under $50 - Entrepreneurship guide by JaysMoneyGuides](/images/how-to-validate-a-digital-business-idea-in-48-hours-for-unde-entrepreneurship-guide.webp)
+
 ---
 
 ## The 48-Hour Pre-Sale Test
@@ -305,6 +315,8 @@ If 10 people put their credit card down, you have proven market demand! Now you 
 Traditional corporate advice tells you to manage every 15-minute block of your calendar.
 
 As a creative solopreneur, your most valuable asset is **mental energy and focus**. Trying to write a high-stakes article at 4:00 PM when your brain is fried takes 4 painful hours. Writing that same article at 8:00 AM after a good workout takes 60 minutes.
+
+![The Solopreneur Operating System: How I Organize My Days for Maximum Energy - Entrepreneurship guide by JaysMoneyGuides](/images/the-solopreneur-operating-system-how-i-organize-my-days-for--entrepreneurship-guide.webp)
 
 ---
 
@@ -354,6 +366,8 @@ Spending 8 hours a week manually reformatting blog posts, checking for broken li
 
 Hiring a skilled Virtual Assistant (VA) allows you to buy back 10+ hours a week for high-value strategic growth.
 
+![How to Hire Your First Virtual Assistant (VA) Without Wasting Money - Entrepreneurship guide by JaysMoneyGuides](/images/how-to-hire-your-first-virtual-assistant-va-without-wasting--entrepreneurship-guide.webp)
+
 ---
 
 ## The SOP-First Hiring Method
@@ -402,6 +416,8 @@ As AI tools get better at generating synthetic text, images, and code in seconds
 
 If your business model relies on copying public information and summarizing it, you are in danger.
 
+![Building a Moat in the Age of AI: What Cannot Be Automated - Entrepreneurship guide by JaysMoneyGuides](/images/building-a-moat-in-the-age-of-ai-what-cannot-be-automated-entrepreneurship-guide.webp)
+
 To survive and thrive, you must build a **Defensible Business Moat**.
 
 ---
@@ -444,6 +460,8 @@ To survive and thrive, you must build a **Defensible Business Moat**.
     ],
     content: `
 # Escaping the Freelance Hourly Trap
+
+![The Power of Productized Services: Bridge the Gap Between Freelancing and SaaS - Entrepreneurship guide by JaysMoneyGuides](/images/the-power-of-productized-services-bridge-the-gap-between-fre-entrepreneurship-guide.webp)
 
 Traditional freelancing is exhausting: writing custom proposals, negotiating scope, chasing late invoices, and trading hours for dollars.
 
@@ -488,6 +506,8 @@ A **Productized Service** takes the skill you possess and sells it like a softwa
 One of the greatest benefits of building a digital content publication is that you are building a **tradable financial asset**.
 
 Content websites currently trade on marketplaces like Empire Flippers, Flippa, and Motion Invest for **35x to 45x monthly net profit**.
+
+![Exit Strategy for Bloggers: How to Sell Your Niche Site for a 35x-45x Multiple - Entrepreneurship guide by JaysMoneyGuides](/images/exit-strategy-for-bloggers-how-to-sell-your-niche-site-for-a-entrepreneurship-guide.webp)
 
 ---
 

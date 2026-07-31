@@ -12,10 +12,12 @@ import {
   X, 
   Sparkles,
   ChevronDown,
-  DollarSign,
-  Database
+  DollarSign
 } from 'lucide-react';
 import { Category, ModalView, User } from '../types';
+
+// Only this account is allowed to see or open the Admin Console
+const ADMIN_EMAIL = 'jayisreallycool@gmail.com';
 
 interface NavbarProps {
   selectedCategory: Category | 'All';
@@ -70,10 +72,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <div className="w-10 h-10 rounded-xl overflow-hidden bg-slate-800 border border-emerald-500/30 shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform shrink-0">
                 <img 
-                  src="/images/jays-mascot-logo.webp" 
+                  src="/images/jaysmoneyguides-logo.webp" 
                   alt="JaysMoneyGuides Mascot" 
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/jays-mascot-logo.jpg';
+                    (e.target as HTMLImageElement).src = '/images/jaysmoneyguides-logo.webp';
                   }}
                   className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"
@@ -171,40 +173,33 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* Database & Images Link */}
-            <button
-              onClick={() => openModal('media-database')}
-              className="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors flex items-center gap-1.5 font-bold border border-emerald-500/30"
-              title="View stored website images in Firestore"
-            >
-              <Database className="w-4 h-4 text-emerald-400" />
-              Image DB
-            </button>
-
             {/* Mandatory Pages Triggers */}
-            <button
-              onClick={() => openModal('contact')}
+            <a
+              href="/contact"
+              onClick={(e) => { e.preventDefault(); openModal('contact'); }}
               className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1.5"
             >
               <Mail className="w-4 h-4 text-emerald-400" />
               Contact Us
-            </button>
+            </a>
 
-            <button
-              onClick={() => openModal('privacy')}
+            <a
+              href="/privacy"
+              onClick={(e) => { e.preventDefault(); openModal('privacy'); }}
               className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors text-xs flex items-center gap-1"
             >
               <Shield className="w-3.5 h-3.5 text-slate-400" />
               Privacy
-            </button>
+            </a>
 
-            <button
-              onClick={() => openModal('terms')}
+            <a
+              href="/terms"
+              onClick={(e) => { e.preventDefault(); openModal('terms'); }}
               className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors text-xs flex items-center gap-1"
             >
               <FileText className="w-3.5 h-3.5 text-slate-400" />
               Terms
-            </button>
+            </a>
           </nav>
 
           {/* Action Buttons */}
@@ -297,16 +292,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                       My Profile & Saved Guides
                     </button>
 
-                    <button
-                      onClick={() => {
-                        openModal('admin');
-                        setIsUserDropdownOpen(false);
-                      }}
-                      className="w-full text-left px-3.5 py-2 text-xs text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-2"
-                    >
-                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
-                      Admin Console
-                    </button>
+                    {currentUser.email === ADMIN_EMAIL && (
+                      <button
+                        onClick={() => {
+                          openModal('admin');
+                          setIsUserDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-3.5 py-2 text-xs text-slate-300 hover:bg-slate-700 hover:text-white flex items-center gap-2"
+                      >
+                        <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                        Admin Console
+                      </button>
+                    )}
 
                     <div className="border-t border-slate-700/80 my-1" />
 
@@ -324,14 +321,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
             )}
 
-            {/* Admin Console Direct Button */}
-            <button
-              onClick={() => openModal('admin')}
-              className="hidden sm:flex bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3.5 py-1.5 rounded-xl text-xs sm:text-sm items-center gap-1.5 transition-all shadow-md shadow-emerald-500/10 active:scale-95"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              Admin
-            </button>
+            {/* Admin Console Direct Button - only visible to the site owner */}
+            {currentUser?.email === ADMIN_EMAIL && (
+              <button
+                onClick={() => openModal('admin')}
+                className="hidden sm:flex bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-3.5 py-1.5 rounded-xl text-xs sm:text-sm items-center gap-1.5 transition-all shadow-md shadow-emerald-500/10 active:scale-95"
+              >
+                <Lock className="w-3.5 h-3.5" />
+                Admin
+              </button>
+            )}
 
             {/* Mobile Menu Toggle */}
             <button
@@ -461,42 +460,39 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Mandatory pages */}
               <div className="pt-2 border-t border-slate-800 flex flex-col gap-2">
-                <button
-                  onClick={() => {
-                    openModal('media-database');
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="flex items-center gap-2 text-sm text-emerald-400 font-bold py-1.5"
-                >
-                  <Database className="w-4 h-4 text-emerald-400" /> Firestore Image Database
-                </button>
-                <button
-                  onClick={() => {
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
                     openModal('contact');
                     setIsMobileMenuOpen(false);
                   }}
                   className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
                 >
                   <Mail className="w-4 h-4 text-emerald-400" /> Contact Form
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href="/privacy"
+                  onClick={(e) => {
+                    e.preventDefault();
                     openModal('privacy');
                     setIsMobileMenuOpen(false);
                   }}
                   className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
                 >
                   <Shield className="w-4 h-4 text-slate-400" /> Privacy Policy
-                </button>
-                <button
-                  onClick={() => {
+                </a>
+                <a
+                  href="/terms"
+                  onClick={(e) => {
+                    e.preventDefault();
                     openModal('terms');
                     setIsMobileMenuOpen(false);
                   }}
                   className="flex items-center gap-2 text-sm text-slate-300 py-1.5"
                 >
                   <FileText className="w-4 h-4 text-slate-400" /> Terms of Service
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

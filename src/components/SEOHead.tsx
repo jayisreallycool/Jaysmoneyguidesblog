@@ -56,7 +56,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ post, category = 'All', search
 
     // 3. Set Open Graph & Twitter Cards
     const ogTitle = post ? post.title : title;
-    const ogImage = post ? post.coverImage : 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80';
+    const ogImage = post ? post.coverImage : 'https://jaysmoneyguides.com/images/jaysmoneyguides-hero-banner.webp';
     const canonicalUrl = post ? `https://jaysmoneyguides.com/guide/${post.slug}` : 'https://jaysmoneyguides.com';
 
     setMetaTag('property', 'og:title', ogTitle);
@@ -76,7 +76,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ post, category = 'All', search
     }
 
     if (post) {
-      const articleSchema = {
+      const articleSchema: Record<string, unknown> = {
         '@context': 'https://schema.org',
         '@type': 'TechArticle',
         'headline': post.title,
@@ -95,22 +95,28 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ post, category = 'All', search
           'name': 'Jaysmoneyguides',
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+            'url': 'https://jaysmoneyguides.com/images/jaysmoneyguides-logo.webp'
           }
         },
         'mainEntityOfPage': {
           '@type': 'WebPage',
           '@id': canonicalUrl
-        },
-        'aggregateRating': {
-          '@type': 'AggregateRating',
-          'ratingValue': post.rating ? post.rating.toString() : '4.9',
-          'bestRating': '5',
-          'worstRating': '1',
-          'ratingCount': post.ratingCount ? post.ratingCount.toString() : '124',
-          'reviewCount': post.ratingCount ? post.ratingCount.toString() : '124'
         }
       };
+
+      // Only attach aggregateRating when the post has genuine rating data -
+      // fabricated review counts violate Google's structured data
+      // guidelines and can trigger a manual action against the whole site.
+      if (post.rating && post.ratingCount) {
+        articleSchema.aggregateRating = {
+          '@type': 'AggregateRating',
+          'ratingValue': post.rating.toString(),
+          'bestRating': '5',
+          'worstRating': '1',
+          'ratingCount': post.ratingCount.toString(),
+          'reviewCount': post.ratingCount.toString()
+        };
+      }
 
       const scriptEl = document.createElement('script');
       scriptEl.id = 'jsonld-dynamic-schema';

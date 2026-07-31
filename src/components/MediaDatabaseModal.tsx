@@ -147,12 +147,14 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
             <button
               onClick={loadAssets}
               title="Refresh Database"
+              aria-label="Refresh database"
               className="p-2 text-slate-400 hover:text-white bg-slate-800/60 hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
             >
               <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             </button>
             <button
               onClick={onClose}
+              aria-label="Close media database"
               className="p-2 text-slate-400 hover:text-white bg-slate-800/60 hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
@@ -442,6 +444,7 @@ export const MediaDatabaseModal: React.FC<MediaDatabaseModalProps> = ({
             <img src={activePreviewUrl} alt="Preview" className="max-w-full max-h-[85vh] object-contain rounded-xl" referrerPolicy="no-referrer" />
             <button 
               onClick={() => setActivePreviewUrl(null)}
+              aria-label="Close image preview"
               className="absolute top-4 right-4 p-2 bg-slate-900/90 text-white rounded-full hover:bg-slate-800"
             >
               <X className="w-5 h-5" />

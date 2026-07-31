@@ -75,7 +75,7 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
           className="absolute inset-0 w-full h-full pointer-events-none z-0"
         >
           <SafeImage 
-            src="/hero-bg.jpg" 
+            src="/images/jaysmoneyguides-hero-banner.webp" 
             alt="JaysMoneyGuides Hero Cover Background" 
             className="w-full h-full object-cover object-top filter brightness-125 contrast-100 opacity-40 sm:opacity-50"
             referrerPolicy="no-referrer"
@@ -171,7 +171,7 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
           className="inline-flex items-center gap-2 bg-slate-900/90 border border-emerald-500/40 rounded-full px-4 py-1.5 text-xs text-slate-200 mb-6 shadow-xl shadow-emerald-950/60 backdrop-blur-md group hover:border-emerald-400 transition-colors"
         >
           <SafeImage 
-            src="/images/jays-mascot-logo.webp" 
+            src="/images/jaysmoneyguides-logo.webp" 
             alt="Jay Mascot" 
             className="w-5 h-5 rounded-full border border-emerald-400 object-cover object-top shrink-0 group-hover:scale-110 transition-transform"
             referrerPolicy="no-referrer"
@@ -227,9 +227,14 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
           
           {/* Featured Master Guide Highlight Banner Card */}
           <div 
-            onClick={() => onSelectPost?.('post-aff-master-guide')}
-            className="lg:col-span-7 bg-slate-900/85 border border-slate-800/90 hover:border-emerald-500/70 rounded-2xl p-5 sm:p-6 backdrop-blur-xl shadow-2xl shadow-slate-950/80 flex flex-col justify-between group transition-all duration-300 cursor-pointer hover:shadow-emerald-950/50 hover:-translate-y-1 active:scale-[0.99] relative overflow-hidden"
+            className="lg:col-span-7 bg-slate-900/85 border border-slate-800/90 hover:border-emerald-500/70 rounded-2xl p-5 sm:p-6 backdrop-blur-xl shadow-2xl shadow-slate-950/80 flex flex-col justify-between group transition-all duration-300 hover:shadow-emerald-950/50 hover:-translate-y-1 active:scale-[0.99] relative overflow-hidden"
           >
+            <a
+              href="/guide/post-aff-master-guide"
+              onClick={(e) => { e.preventDefault(); onSelectPost?.('post-aff-master-guide'); }}
+              aria-label="Read: Affiliate Marketing For Beginners"
+              className="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            />
             {/* Subtle card glow accent */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/25 transition-all" />
 
@@ -239,7 +244,7 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
                   src="/images/affiliate-marketing-guide-cover.webp" 
                   alt="Affiliate Marketing Master Guide Cover" 
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/hero-bg.jpg';
+                    (e.target as HTMLImageElement).src = '/images/jaysmoneyguides-hero-banner.webp';
                   }}
                   className="w-full h-auto object-cover"
                   referrerPolicy="no-referrer"
@@ -280,15 +285,20 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onSubscribeSuccess, onSe
 
           {/* Ebook Cover WebP Card Spotlight */}
           <div 
-            onClick={() => onSelectPost?.('post-aff-master-guide')}
-            className="lg:col-span-5 bg-gradient-to-br from-slate-900/90 via-slate-900/85 to-slate-950/95 border border-emerald-500/40 hover:border-emerald-400/80 rounded-2xl p-5 backdrop-blur-xl shadow-2xl shadow-slate-950/80 flex items-center gap-4 group transition-all duration-300 cursor-pointer hover:shadow-emerald-950/60 hover:-translate-y-1 active:scale-[0.99] relative overflow-hidden"
+            className="lg:col-span-5 bg-gradient-to-br from-slate-900/90 via-slate-900/85 to-slate-950/95 border border-emerald-500/40 hover:border-emerald-400/80 rounded-2xl p-5 backdrop-blur-xl shadow-2xl shadow-slate-950/80 flex items-center gap-4 group transition-all duration-300 hover:shadow-emerald-950/60 hover:-translate-y-1 active:scale-[0.99] relative overflow-hidden"
           >
+            <a
+              href="/guide/post-aff-master-guide"
+              onClick={(e) => { e.preventDefault(); onSelectPost?.('post-aff-master-guide'); }}
+              aria-label="Read: Affiliate Marketing For Beginners"
+              className="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+            />
             <div className="w-24 sm:w-28 shrink-0 rounded-xl overflow-hidden shadow-2xl border border-emerald-500/40 group-hover:scale-105 transition-transform duration-300 bg-slate-950">
               <img 
-                src="/images/affiliate-viable-solution-infographic.webp" 
+                src="/images/affiliate-marketing-viable-business-infographic.webp" 
                 alt="Affiliate Marketing Viable Solution Infographic" 
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/images/affiliate-viable-solution-infographic.webp';
+                  (e.target as HTMLImageElement).src = '/images/affiliate-marketing-viable-business-infographic.webp';
                 }}
                 className="w-full h-auto object-cover"
                 referrerPolicy="no-referrer"

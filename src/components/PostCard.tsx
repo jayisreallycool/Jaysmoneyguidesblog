@@ -40,11 +40,24 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({
     }
   };
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onOpenPost(post);
+  };
+
   return (
-    <article 
-      onClick={() => onOpenPost(post)}
-      className="group bg-slate-800/90 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-500/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1"
+    <article
+      className="group relative bg-slate-800/90 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-500/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-emerald-500/5 transition-all duration-300 flex flex-col transform hover:-translate-y-1"
     >
+      {/* Full-card link: gives the card a real, crawlable URL and native
+          keyboard/focus support, while the bookmark/like buttons sit above
+          it (z-20) so they remain independently clickable. */}
+      <a
+        href={`/guide/${post.slug}`}
+        onClick={handleCardClick}
+        aria-label={`Read guide: ${post.title}`}
+        className="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+      />
       {/* Cover Image Header */}
       <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
         <SafeImage
@@ -77,7 +90,7 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({
         {/* Bookmark Action */}
         <button
           onClick={(e) => onToggleBookmark(post.id, e)}
-          className={`absolute top-3 right-3 p-2 rounded-xl backdrop-blur-md transition-all ${
+          className={`absolute top-3 right-3 z-20 p-2 rounded-xl backdrop-blur-md transition-all ${
             isBookmarked
               ? 'bg-emerald-500 text-slate-950 font-bold'
               : 'bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-900/80 border border-slate-700/60'
@@ -138,7 +151,7 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({
         <div className="pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
           <div className="flex items-center gap-2">
             <SafeImage
-              src={post.author.avatar || '/images/jays-mascot-logo.webp'}
+              src={post.author.avatar || '/images/jaysmoneyguides-logo.webp'}
               alt={post.author.name}
               className="w-7 h-7 rounded-full object-cover border border-emerald-500/30"
               loading="lazy"
@@ -159,7 +172,7 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({
             <button
               onClick={(e) => onLikePost(post.id, e)}
               aria-label={isLiked ? 'Unlike post' : 'Like post'}
-              className={`flex items-center gap-1 px-2 py-1 rounded-lg transition-colors ${
+              className={`relative z-20 flex items-center gap-1 px-2 py-1 rounded-lg transition-colors ${
                 isLiked
                   ? 'text-rose-400 bg-rose-500/10 font-bold'
                   : 'hover:text-rose-400 hover:bg-slate-700/50'

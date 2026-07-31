@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BlogPost, ContactMessage, Subscriber, AnalyticsStats } from '../types';
+import { BlogPost, ContactMessage, Subscriber, AnalyticsStats, User } from '../types';
 import { getSecurityLogs, sanitizeInput, sanitizeUrl, SecurityLog } from '../utils/security';
 import { 
   Lock, 
@@ -21,7 +21,6 @@ import {
   FileText,
   DollarSign,
   CheckCircle2,
-  AlertCircle,
   Globe,
   Copy,
   Server,
@@ -31,10 +30,14 @@ import {
   Database
 } from 'lucide-react';
 
+// Only this account may view or use the Admin Console
+const ADMIN_EMAIL = 'jayisreallycool@gmail.com';
+
 interface AdminConsoleProps {
   isOpen: boolean;
   onClose: () => void;
   onOpenImageDatabase?: () => void;
+  currentUser: User | null;
   posts: BlogPost[];
   onSavePost: (post: BlogPost) => void;
   onDeletePost: (postId: string) => void;
@@ -52,6 +55,7 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
   isOpen,
   onClose,
   onOpenImageDatabase,
+  currentUser,
   posts,
   onSavePost,
   onDeletePost,
@@ -64,10 +68,9 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
   onResetStatsToProduction,
   onSeedDemoStats,
 }) => {
-  // Authentication PIN state
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [pinInput, setPinInput] = useState('');
-  const [pinError, setPinError] = useState(false);
+  // Access is restricted to a single account - no PIN, since a PIN is not
+  // a real access control and was previously bypassable.
+  const isAdmin = currentUser?.email === ADMIN_EMAIL;
   const [statusNotification, setStatusNotification] = useState('');
 
   // Admin Active Tab
@@ -106,16 +109,6 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
   const [aiSuccessMsg, setAiSuccessMsg] = useState('');
 
   if (!isOpen) return null;
-
-  const handleAuthSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (pinInput === '1234' || pinInput.toLowerCase() === 'jayadmin' || pinInput.trim() !== '') {
-      setIsAuthenticated(true);
-      setPinError(false);
-    } else {
-      setPinError(true);
-    }
-  };
 
   const resetPostForm = () => {
     setEditingPostId(null);
@@ -263,47 +256,22 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/85 backdrop-blur-md flex justify-center items-center p-3 sm:p-6 animate-fadeIn">
       <div className="relative w-full max-w-5xl bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden text-slate-100 flex flex-col max-h-[92vh]">
         
-        {/* Passcode Unlock Modal view if not authenticated */}
-        {!isAuthenticated ? (
+        {/* Access restricted view for anyone other than the site owner */}
+        {!isAdmin ? (
           <div className="p-8 sm:p-12 text-center space-y-6 max-w-md mx-auto my-auto">
-            <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mx-auto border border-emerald-500/30">
+            <div className="w-16 h-16 bg-rose-500/20 text-rose-400 rounded-2xl flex items-center justify-center mx-auto border border-rose-500/30">
               <Lock className="w-8 h-8" />
             </div>
             <div>
-              <h2 className="text-2xl font-black text-white">Jay's Admin Console</h2>
-              <p className="text-xs text-slate-400 mt-1">Authorized access to post management, AI writer, and analytics.</p>
+              <h2 className="text-2xl font-black text-white">Access Restricted</h2>
+              <p className="text-xs text-slate-400 mt-1">
+                The Admin Console is only available to the site owner's account.
+                {currentUser ? ' This account does not have access.' : ' Please sign in with the owner account to continue.'}
+              </p>
             </div>
 
-            <form onSubmit={handleAuthSubmit} className="space-y-4">
-              {pinError && (
-                <div className="bg-rose-500/20 text-rose-300 text-xs p-2.5 rounded-xl border border-rose-500/30 flex items-center justify-center gap-1.5">
-                  <AlertCircle className="w-4 h-4" /> Invalid PIN. Try PIN: 1234
-                </div>
-              )}
-              <input
-                type="password"
-                placeholder="Enter Passcode (Default: 1234)"
-                value={pinInput}
-                onChange={(e) => setPinInput(e.target.value)}
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-center text-sm font-mono tracking-widest text-white focus:outline-none focus:border-emerald-500"
-              />
-              <button
-                type="submit"
-                className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/20"
-              >
-                Unlock Console
-              </button>
-            </form>
-
-            <button
-              onClick={() => setIsAuthenticated(true)}
-              className="text-xs text-emerald-400 hover:underline block mx-auto"
-            >
-              1-Click Instant Unlock (Preview Mode)
-            </button>
-
             <button onClick={onClose} className="text-xs text-slate-500 hover:text-slate-300 block mx-auto">
-              Cancel & Return to Site
+              Return to Site
             </button>
           </div>
         ) : (
@@ -327,13 +295,8 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
 
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => setIsAuthenticated(false)}
-                  className="text-xs text-slate-400 hover:text-white px-2.5 py-1 rounded-lg bg-slate-800 border border-slate-700"
-                >
-                  Lock
-                </button>
-                <button
                   onClick={onClose}
+                  aria-label="Close admin console"
                   className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800"
                 >
                   <X className="w-5 h-5" />
@@ -450,7 +413,7 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span>{statusNotification}</span>
                   </div>
-                  <button onClick={() => setStatusNotification('')} className="text-slate-400 hover:text-white p-1">
+                  <button onClick={() => setStatusNotification('')} aria-label="Dismiss notification" className="text-slate-400 hover:text-white p-1">
                     <X className="w-4 h-4" />
                   </button>
                 </div>
@@ -829,7 +792,7 @@ export const AdminConsole: React.FC<AdminConsoleProps> = ({
                     {posts.map((p) => (
                       <div key={p.id} className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <img src={p.coverImage} alt="" className="w-12 h-12 rounded-xl object-cover" />
+                          <img src={p.coverImage} alt={p.title} className="w-12 h-12 rounded-xl object-cover" />
                           <div>
                             <div className="flex items-center gap-2">
                               <h4 className="font-bold text-white text-sm">{p.title}</h4>

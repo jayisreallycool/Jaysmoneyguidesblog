@@ -70,6 +70,7 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({
         <div className="p-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-800 relative">
           <button
             onClick={onClose}
+            aria-label="Close profile"
             className="absolute right-4 top-4 p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800/80 transition-colors"
           >
             <X className="w-5 h-5" />

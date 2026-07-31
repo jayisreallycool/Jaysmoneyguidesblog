@@ -12,7 +12,7 @@ export const TECH_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-24',
     readTimeMinutes: 8,
@@ -51,6 +51,8 @@ Here is my complete personal setup.
 
 ## 1. Hosting & Domain Infrastructure: Vercel + Cloudflare ($0/mo)
 
+![My $0 Solopreneur Tech Stack for 2026: The Tools I Use to Run a 6-Figure Business - Tech guide by JaysMoneyGuides](/images/my-0-solopreneur-tech-stack-for-2026-the-tools-i-use-to-run--tech-guide.webp)
+
 Forget clunky $10/mo hosting servers. Modern web apps and static sites can be deployed on Vercel or Cloudflare Pages for **$0 per month**.
 * Free SSL certificates.
 * Global edge distribution network (CDN).
@@ -83,7 +85,7 @@ Kit (formerly ConvertKit) offers a free tier allowing you to manage up to 10,000
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-20',
     readTimeMinutes: 7,
@@ -112,6 +114,8 @@ Here are the 5 specific AI tools I use daily.
 
 ---
 
+![The AI Productivity Stack: 5 AI Tools That Save Me 15 Hours Every Week - Tech guide by JaysMoneyGuides](/images/the-ai-productivity-stack-5-ai-tools-that-save-me-15-hours-e-tech-guide.webp)
+
 ## 1. Gemini Pro for Dataset Research
 
 Whenever I want to compare 10 different software pricing tiers, I feed the pricing URLs into Gemini and ask: *"Create a comparative markdown table comparing feature limits, monthly costs, and annual discounts."*
@@ -136,7 +140,7 @@ Editing audio word-by-word in traditional timeline software is slow. Descript tr
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-14',
     readTimeMinutes: 6,
@@ -161,6 +165,8 @@ Your physical environment has a direct impact on your mental clarity and output.
 
 When my desk was covered in tangled cables, loose papers, and extra gadgets, my brain felt cluttered. Transitioning to a **strict minimalist setup** made deep focus effortless.
 
+![Minimalist Desk Setup for Maximum Focus: My 2026 Hardware Workspace - Tech guide by JaysMoneyGuides](/images/minimalist-desk-setup-for-maximum-focus-my-2026-hardware-wor-tech-guide.webp)
+
 ---
 
 ## Core Hardware Components
@@ -181,7 +187,7 @@ When my desk was covered in tangled cables, loose papers, and extra gadgets, my 
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-10',
     readTimeMinutes: 8,
@@ -205,6 +211,8 @@ When my desk was covered in tangled cables, loose papers, and extra gadgets, my 
 If you spend more than 10 minutes a day copying data from one web app to another (e.g., taking Stripe sale notifications and adding them to a Google Sheet spreadsheet), **you need web automation**.
 
 No-code automation tools act as digital glue, passing information between apps behind the scenes.
+
+![No-Code Automation 101: How to Connect Apps and Save 5 Hours a Week - Tech guide by JaysMoneyGuides](/images/no-code-automation-101-how-to-connect-apps-and-save-5-hours--tech-guide.webp)
 
 ---
 
@@ -250,6 +258,8 @@ No-code automation tools act as digital glue, passing information between apps b
 Losing access to your YouTube channel, email list, or domain registrar because of a hacked password can wipe out years of hard work overnight.
 
 Cybercriminals target online creators using sophisticated phishing emails and SIM swaps.
+
+![Cybersecurity for Digital Creators: How to Prevent Account Hacking - Tech guide by JaysMoneyGuides](/images/cybersecurity-for-digital-creators-how-to-prevent-account-ha-tech-guide.webp)
 
 Here is the non-negotiable security protocol I follow.
 
@@ -298,6 +308,8 @@ When you use big SaaS platforms, your data lives on someone else's computer. The
 
 **Self-hosting** open-source software on a small $5/month virtual server (like Hetzner or DigitalOcean) gives you full privacy and control.
 
+![Self-Hosting for Beginners: Running Your Own Services on Cloud VPS - Tech guide by JaysMoneyGuides](/images/self-hosting-for-beginners-running-your-own-services-on-clou-tech-guide.webp)
+
 ---
 
 ## Great Open-Source Self-Hosted Alternatives
@@ -342,6 +354,8 @@ When you use big SaaS platforms, your data lives on someone else's computer. The
 Google Analytics 4 (GA4) feels like it was designed for corporate fortune 500 enterprise analysts, not independent creators and bloggers.
 
 It takes 6 clicks just to see which blog posts got the most traffic yesterday. Plus, the GA4 script is heavy, impacting mobile performance scores.
+
+![Web Analytics Beyond Google: Why I Switched to Privacy-Friendly Tracking - Tech guide by JaysMoneyGuides](/images/web-analytics-beyond-google-why-i-switched-to-privacy-friend-tech-guide.webp)
 
 Switching to **lightweight privacy analytics** was one of the best upgrades I made.
 
@@ -390,6 +404,8 @@ Standard ChatGPT prompts produce generic, robotic text because the model default
 
 By building a **Custom GPT / System Prompt**, you can feed it your specific writing rules, banned words, and target audience personas.
 
+![How to Build a Custom GPT / AI Assistant for Your Blog Content Strategy - Tech guide by JaysMoneyGuides](/images/how-to-build-a-custom-gpt-ai-assistant-for-your-blog-content-tech-guide.webp)
+
 ---
 
 ## My System Prompt Template
@@ -437,6 +453,8 @@ By building a **Custom GPT / System Prompt**, you can feed it your specific writ
 Choosing the wrong Content Management System (CMS) can lead to months of technical headaches down the road.
 
 Here is how the top three publishing options compare today.
+
+![Choosing a CMS: WordPress vs Ghost vs Custom React/Next.js in 2026 - Tech guide by JaysMoneyGuides](/images/choosing-a-cms-wordpress-vs-ghost-vs-custom-react-next-js-in-tech-guide.webp)
 
 ---
 
@@ -488,6 +506,8 @@ Here is how the top three publishing options compare today.
 Imagine waking up tomorrow and discovering your hard drive failed, taking 2 years of raw article drafts, video projects, and tax records with it.
 
 If your backup strategy relies on *"I occasionally copy files to a thumb drive"*, you are flirting with disaster.
+
+![Cloud Backups for Creators: How to Ensure You Never Lose Your Files - Tech guide by JaysMoneyGuides](/images/cloud-backups-for-creators-how-to-ensure-you-never-lose-your-tech-guide.webp)
 
 ---
 

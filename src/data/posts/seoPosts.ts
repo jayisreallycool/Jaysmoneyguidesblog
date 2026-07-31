@@ -12,7 +12,7 @@ export const SEO_POSTS: BlogPost[] = [
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-21',
     readTimeMinutes: 9,
@@ -57,6 +57,8 @@ Instead, show your hands-on test in line one:
 * *"I spent 3 weeks testing 7 different SEO tools on a brand new domain. Here is what happened."*
 * Include custom photos, real dataset screenshots, or video clips.
 
+![The 2026 Practical SEO Checklist: How to Rank #1 Without Buying Dead Backlinks - SEO guide by JaysMoneyGuides](/images/the-2026-practical-seo-checklist-how-to-rank-1-without-buyin-seo-guide.webp)
+
 ---
 
 ## 2. Build Topic Clusters (Not Random Keywords)
@@ -93,7 +95,7 @@ If your site takes more than 2 seconds to load on mobile, 40% of visitors hit th
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-17',
     readTimeMinutes: 7,
@@ -122,6 +124,8 @@ Forbes writes about credit cards, home appliances, celebrity gossip, and product
 
 When you build a site dedicated **exclusively** to one tight subject, Google recognizes your site as the ultimate specialist on that topic.
 
+![Topical Authority Explained: How a 6-Month-Old Site Outranked Forbes - SEO guide by JaysMoneyGuides](/images/topical-authority-explained-how-a-6-month-old-site-outranked-seo-guide.webp)
+
 ---
 
 ## The Case Study Breakdown
@@ -149,7 +153,7 @@ Within 5 months, my small site sat in spot #1 and #2 on Google above major news 
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-13',
     readTimeMinutes: 6,
@@ -178,6 +182,8 @@ Internal links tell Google two critical things:
 
 ---
 
+![Internal Linking Strategy: The Easiest Way to Boost Rankings in 24 Hours - SEO guide by JaysMoneyGuides](/images/internal-linking-strategy-the-easiest-way-to-boost-rankings--seo-guide.webp)
+
 ## My 2-Step Internal Link Audit
 
 ### Step 1: Find Pages Sitting on Page 2
@@ -200,7 +206,7 @@ Within 48 hours, search spiders recrawl the high-traffic page, follow the link, 
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-09',
     readTimeMinutes: 8,
@@ -227,6 +233,8 @@ What they don't realize is that Nike, Apple, and Healthline spent millions of do
 
 Instead, go after **Zero-Competition Long-Tail Keywords**.
 
+![How to Do Keyword Research in 2026 (Finding Zero-Competition Gems) - SEO guide by JaysMoneyGuides](/images/how-to-do-keyword-research-in-2026-finding-zero-competition--seo-guide.webp)
+
 ---
 
 ## The Reddit Forum Method
@@ -249,7 +257,7 @@ Create a thorough, well-formatted guide answering that exact thread question, an
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-05',
     readTimeMinutes: 10,
@@ -274,6 +282,8 @@ Writing 100 individual articles manually can take months of painful typing.
 
 With **Programmatic SEO (pSEO)**, you combine a structured dataset (a CSV spreadsheet or database) with a master page template to generate hundreds of hyper-focused landing pages automatically.
 
+![Programmatic SEO: How I Generated 100 High-Ranking Pages in One Weekend - SEO guide by JaysMoneyGuides](/images/programmatic-seo-how-i-generated-100-high-ranking-pages-in-o-seo-guide.webp)
+
 Think of sites like NomadList (*"Cost of Living in [City]"*) or Zapier (*"How to Connect [App A] to [App B]"*).
 
 ---
@@ -296,7 +306,7 @@ Think of sites like NomadList (*"Cost of Living in [City]"*) or Zapier (*"How to
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-07-01',
     readTimeMinutes: 6,
@@ -321,6 +331,8 @@ When two articles rank next to each other on Google, the one with **bright gold 
 
 Those extra visual elements are called **Rich Snippets**, and they are created using **Schema Markup (JSON-LD)**.
 
+![Schema Markup 101: How to Get Rich Star Ratings in Google Results - SEO guide by JaysMoneyGuides](/images/schema-markup-101-how-to-get-rich-star-ratings-in-google-res-seo-guide.webp)
+
 ---
 
 ## Essential Schemas Every Blog Needs
@@ -341,7 +353,7 @@ Those extra visual elements are called **Rich Snippets**, and they are created u
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-26',
     readTimeMinutes: 7,
@@ -366,6 +378,8 @@ Google explicitly confirmed that user experience and speed metrics (Core Web Vit
 
 If your page jumps around while loading or takes 5 seconds to respond to a touch tap, Google will downgrade your rankings.
 
+![Core Web Vitals & Page Speed Optimization for Non-Techies - SEO guide by JaysMoneyGuides](/images/core-web-vitals-page-speed-optimization-for-non-techies-seo-guide.webp)
+
 ---
 
 ## The 3 Quick Speed Wins
@@ -386,7 +400,7 @@ If your page jumps around while loading or takes 5 seconds to respond to a touch
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-22',
     readTimeMinutes: 8,
@@ -411,6 +425,8 @@ Over time, every blog accumulates digital clutter: broken links, outdated posts,
 
 Running a quick 60-minute SEO audit twice a year keeps your domain healthy and competitive.
 
+![How to Conduct a Thorough SEO Audit on Your Own Site in 1 Hour - SEO guide by JaysMoneyGuides](/images/how-to-conduct-a-thorough-seo-audit-on-your-own-site-in-1-ho-seo-guide.webp)
+
 ---
 
 ## The 4-Step DIY Audit Checklist
@@ -432,7 +448,7 @@ Running a quick 60-minute SEO audit twice a year keeps your domain healthy and c
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-18',
     readTimeMinutes: 7,
@@ -457,6 +473,8 @@ When someone searches for a local service (*"SEO Agency in Austin"*, *"Plumber n
 
 Getting listed in those top 3 map spots delivers massive phone calls and leads without paying for costly Google Ads.
 
+![Local SEO Mastery: How Small Businesses Win Top Google Map Pack Spots - SEO guide by JaysMoneyGuides](/images/local-seo-mastery-how-small-businesses-win-top-google-map-pa-seo-guide.webp)
+
 ---
 
 ## 3 Core Pillars of Local SEO
@@ -477,7 +495,7 @@ Getting listed in those top 3 map spots delivers massive phone calls and leads w
     author: {
       name: 'Jay Lopez',
       role: 'Founder & Lead Strategist',
-      avatar: '/images/jays-mascot-logo.webp',
+      avatar: '/images/jaysmoneyguides-logo.webp',
     },
     publishedAt: '2026-06-12',
     readTimeMinutes: 8,
@@ -501,6 +519,8 @@ Getting listed in those top 3 map spots delivers massive phone calls and leads w
 If your blog is only written in English for a US audience, you are ignoring millions of potential readers in Europe, Latin America, and Asia.
 
 International SEO lets you present localized versions of your content to search engine users worldwide.
+
+![International SEO: How to Target Multiple Countries and Languages - SEO guide by JaysMoneyGuides](/images/international-seo-how-to-target-multiple-countries-and-langu-seo-guide.webp)
 
 ---
 

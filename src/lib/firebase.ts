@@ -90,8 +90,8 @@ export const INITIAL_MEDIA_ASSETS: MediaAsset[] = [
   {
     id: 'img-affiliate-viable-solution',
     title: 'Affiliate Marketing is Still a Viable Solution',
-    filename: 'affiliate-viable-solution-infographic.webp',
-    url: '/images/affiliate-viable-solution-infographic.webp',
+    filename: 'affiliate-marketing-viable-business-infographic.jpg',
+    url: '/images/affiliate-marketing-viable-business-infographic.webp',
     category: 'Infographics',
     altText: 'Infographic illustrating why affiliate marketing is a viable passive income solution with low cost entry and work from anywhere perks',
     description: 'High-converting visual breakdown featuring key pillars: Passive Income, Growing Industry, Low Cost Entry, and Work from Anywhere.',
@@ -100,8 +100,8 @@ export const INITIAL_MEDIA_ASSETS: MediaAsset[] = [
   {
     id: 'img-affiliate-opportunity-2025',
     title: 'Affiliate Marketing Still a Big Opportunity in 2025!',
-    filename: 'affiliate-opportunity-2025-infographic.webp',
-    url: '/images/affiliate-opportunity-2025-infographic.webp',
+    filename: 'affiliate-marketing-2025-opportunity-infographic.jpg',
+    url: '/images/affiliate-marketing-2025-opportunity-infographic.webp',
     category: 'Infographics',
     altText: 'Infographic showcasing 2025 affiliate marketing opportunities with flexible lifestyle and booming e-commerce growth',
     description: 'Updated 2025 strategic blueprint infographic highlighting booming e-commerce, low startup costs, and flexible lifestyle benefits.',
@@ -110,7 +110,7 @@ export const INITIAL_MEDIA_ASSETS: MediaAsset[] = [
   {
     id: 'img-guide-cover',
     title: 'JaysMoneyGuides Affiliate Marketing For Beginners Cover',
-    filename: 'affiliate-marketing-guide-cover.webp',
+    filename: 'affiliate-marketing-guide-cover.jpg',
     url: '/images/affiliate-marketing-guide-cover.webp',
     category: 'eBook & Master Guides',
     altText: 'JaysMoneyGuides Affiliate Marketing For Beginners eBook artwork by Jay Lopez',
@@ -120,8 +120,8 @@ export const INITIAL_MEDIA_ASSETS: MediaAsset[] = [
   {
     id: 'img-mascot-logo',
     title: 'JaysMoneyGuides Mascot Logo',
-    filename: 'jays-mascot-logo.webp',
-    url: '/images/jays-mascot-logo.webp',
+    filename: 'jaysmoneyguides-logo.jpg',
+    url: '/images/jaysmoneyguides-logo.webp',
     category: 'Brand Assets',
     altText: 'JaysMoneyGuides Mascot Logo showing Jay with cash giving a thumbs up',
     description: 'Official brand mascot logo with cash in hand and thumbs up, isolated on clean background.',
@@ -130,8 +130,8 @@ export const INITIAL_MEDIA_ASSETS: MediaAsset[] = [
   {
     id: 'img-hero-banner',
     title: 'JaysMoneyGuides Hero Wallpaper Banner',
-    filename: 'jays-hero-banner.webp',
-    url: '/images/jays-hero-banner.webp',
+    filename: 'jaysmoneyguides-hero-banner.jpg',
+    url: '/images/jaysmoneyguides-hero-banner.webp',
     category: 'Brand Assets',
     altText: 'JaysMoneyGuides hero banner graphic with money stacks and green backdrop',
     description: 'Full-bleed green gradient hero banner artwork for website headers and social media banners.',

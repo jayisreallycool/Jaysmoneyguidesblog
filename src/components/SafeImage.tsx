@@ -4,7 +4,7 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
 }
 
-export const SafeImage: React.FC<SafeImageProps> = ({ fallbackSrc = '/images/jays-mascot-logo.webp', ...props }) => {
+export const SafeImage: React.FC<SafeImageProps> = ({ fallbackSrc = '/images/jaysmoneyguides-logo.webp', ...props }) => {
   const [imgSrc, setImgSrc] = useState(props.src);
 
   return (
