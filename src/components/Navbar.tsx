@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </div>
 
-            {/* Mandatory Pages Triggers */}
+            {/* Contact Us Trigger */}
             <a
               href="/contact"
               onClick={(e) => { e.preventDefault(); openModal('contact'); }}
@@ -181,24 +181,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Mail className="w-4 h-4 text-emerald-400" />
               Contact Us
-            </a>
-
-            <a
-              href="/privacy"
-              onClick={(e) => { e.preventDefault(); openModal('privacy'); }}
-              className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors text-xs flex items-center gap-1"
-            >
-              <Shield className="w-3.5 h-3.5 text-slate-400" />
-              Privacy
-            </a>
-
-            <a
-              href="/terms"
-              onClick={(e) => { e.preventDefault(); openModal('terms'); }}
-              className="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition-colors text-xs flex items-center gap-1"
-            >
-              <FileText className="w-3.5 h-3.5 text-slate-400" />
-              Terms
             </a>
           </nav>
 

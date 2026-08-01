@@ -34,20 +34,44 @@ const CookieConsent = React.lazy(() => import('./components/CookieConsent').then
 export default function App() {
   // State: Posts & Persistent Collections
   const [posts, setPosts] = useState<BlogPost[]>(() => {
+    // Force reset mock data to zero baseline once
+    const hasResetMockData = localStorage.getItem('jmg_reset_mock_v3') === 'true';
+    if (!hasResetMockData) {
+      localStorage.setItem('jmg_reset_mock_v3', 'true');
+      localStorage.setItem('jmg_posts', JSON.stringify(INITIAL_POSTS));
+      localStorage.setItem('jmg_likes', JSON.stringify([]));
+      return INITIAL_POSTS;
+    }
     const saved = localStorage.getItem('jmg_posts');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) {
-          // Ensure all 50 initial posts exist (merge any missing initial posts)
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const initialMap = new Map(INITIAL_POSTS.map(p => [p.id, p]));
+          const updated = parsed.map((p: BlogPost) => {
+            const fresh = initialMap.get(p.id);
+            if (fresh) {
+              return {
+                ...fresh,
+                views: p.views || 0,
+                likes: p.likes || 0,
+                rating: p.rating || 0,
+                ratingCount: p.ratingCount || 0,
+              };
+            }
+            return {
+              ...p,
+              views: p.views || 0,
+              likes: p.likes || 0,
+              rating: p.rating || 0,
+              ratingCount: p.ratingCount || 0,
+            };
+          });
           const existingIds = new Set(parsed.map((p: BlogPost) => p.id));
-          const missingInitial = INITIAL_POSTS.filter(p => !existingIds.has(p.id));
-          if (missingInitial.length > 0) {
-            const merged = [...parsed, ...missingInitial];
-            localStorage.setItem('jmg_posts', JSON.stringify(merged));
-            return merged;
-          }
-          return parsed;
+          const missing = INITIAL_POSTS.filter(p => !existingIds.has(p.id));
+          const result = [...updated, ...missing];
+          localStorage.setItem('jmg_posts', JSON.stringify(result));
+          return result;
         }
       } catch {
         return INITIAL_POSTS;

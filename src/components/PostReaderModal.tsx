@@ -32,6 +32,7 @@ interface PostReaderModalProps {
   comments: Comment[];
   onAddComment: (postId: string, name: string, text: string) => void;
   onTrackAffiliateClick?: (productName: string) => void;
+  onRatePost?: (postId: string, rating: number) => void;
 }
 
 export const PostReaderModal: React.FC<PostReaderModalProps> = ({
@@ -44,6 +45,7 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
   comments,
   onAddComment,
   onTrackAffiliateClick,
+  onRatePost,
 }) => {
   const [commentName, setCommentName] = useState('');
   const [commentText, setCommentText] = useState('');
@@ -55,6 +57,9 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
   const handleRatePost = (stars: number) => {
     setUserRating(stars);
     setHasRated(true);
+    if (onRatePost) {
+      onRatePost(post.id, stars);
+    }
   };
 
   const handleCommentSubmit = (e: React.FormEvent) => {
@@ -155,8 +160,8 @@ export const PostReaderModal: React.FC<PostReaderModalProps> = ({
               </span>
               <div className="bg-amber-950/60 text-amber-300 font-bold px-3 py-1 rounded-full border border-amber-500/30 flex items-center gap-1.5 ml-auto">
                 <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                <span>{post.rating ? post.rating.toFixed(1) : '4.9'} / 5.0</span>
-                <span className="text-[10px] text-amber-400/80">({(post.ratingCount || 120) + (hasRated ? 1 : 0)} votes)</span>
+                <span>{typeof post.rating === 'number' && post.rating > 0 ? post.rating.toFixed(1) : '0.0'} / 5.0</span>
+                <span className="text-[10px] text-amber-400/80">({post.ratingCount || 0} votes)</span>
               </div>
             </div>
 

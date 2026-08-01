@@ -6,7 +6,8 @@ import {
   Search, 
   BookOpen, 
   Cpu, 
-  Briefcase 
+  Briefcase,
+  ChevronRight
 } from 'lucide-react';
 
 interface CategoryTabsProps {
@@ -41,39 +42,53 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
   };
 
   return (
-    <div className="relative w-full">
-      <div className="w-full overflow-x-auto pb-2 scrollbar-none after:absolute after:right-0 after:top-0 after:bottom-0 after:w-16 after:bg-gradient-to-l after:from-slate-950 after:to-transparent after:pointer-events-none">
-        <div className="flex items-center gap-2 min-w-max py-2 pr-12">
-          {tabs.map((tab) => {
-            const isActive = selectedCategory === tab.id;
-            const count = postCounts[tab.id] || 0;
+    <div className="relative w-full space-y-1.5">
+      {/* Subtle Mobile Scroll Hint */}
+      <div className="flex items-center justify-between sm:hidden px-1 text-[11px] text-slate-400 font-medium">
+        <span className="flex items-center gap-1.5 text-slate-300">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          Filter by topic
+        </span>
+        <span className="flex items-center gap-1 text-emerald-400 font-semibold tracking-wide">
+          <span>Swipe tabs</span>
+          <ChevronRight className="w-3.5 h-3.5 animate-pulse" />
+        </span>
+      </div>
 
-            return (
-              <button
-                key={tab.id}
-                onClick={() => onSelectCategory(tab.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
-                  isActive
-                    ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
-                    : 'bg-slate-800/80 hover:bg-slate-800 text-slate-300 border border-slate-700/60 hover:text-white'
-                }`}
-              >
-                <span className={isActive ? 'text-slate-950' : 'text-emerald-400'}>
-                  {getIcon(tab.iconName)}
-                </span>
-                <span>{tab.label}</span>
-                <span
-                  className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+      <div className="relative w-full">
+        <div className="w-full overflow-x-auto pb-2 scrollbar-none after:absolute after:right-0 after:top-0 after:bottom-0 after:w-16 after:bg-gradient-to-l after:from-slate-950 after:to-transparent after:pointer-events-none">
+          <div className="flex items-center gap-2 min-w-max py-1 pr-12">
+            {tabs.map((tab) => {
+              const isActive = selectedCategory === tab.id;
+              const count = postCounts[tab.id] || 0;
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => onSelectCategory(tab.id)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                     isActive
-                      ? 'bg-slate-950/20 text-slate-950'
-                      : 'bg-slate-900/60 text-slate-400 border border-slate-700/50'
+                      ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
+                      : 'bg-slate-800/80 hover:bg-slate-800 text-slate-300 border border-slate-700/60 hover:text-white'
                   }`}
                 >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
+                  <span className={isActive ? 'text-slate-950' : 'text-emerald-400'}>
+                    {getIcon(tab.iconName)}
+                  </span>
+                  <span>{tab.label}</span>
+                  <span
+                    className={`text-xs px-2 py-0.5 rounded-full font-bold ${
+                      isActive
+                        ? 'bg-slate-950/20 text-slate-950'
+                        : 'bg-slate-900/60 text-slate-400 border border-slate-700/50'
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

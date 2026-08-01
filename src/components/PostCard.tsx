@@ -74,10 +74,10 @@ export const PostCard: React.FC<PostCardProps> = React.memo(({
           <span className={`text-xs font-bold px-2.5 py-1 rounded-full border backdrop-blur-md ${getCategoryColor(post.category)}`}>
             {post.category}
           </span>
-          {post.rating && (
+          {typeof post.rating === 'number' && post.ratingCount !== undefined && post.ratingCount > 0 && (
             <span className="bg-slate-950/80 text-amber-300 text-[11px] font-bold px-2 py-0.5 rounded-full border border-amber-500/30 backdrop-blur-md flex items-center gap-1">
               <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-              {post.rating.toFixed(1)} {post.ratingCount ? `(${post.ratingCount})` : ''}
+              {post.rating.toFixed(1)} ({post.ratingCount})
             </span>
           )}
           {post.featured && (
